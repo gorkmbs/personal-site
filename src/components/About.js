@@ -16,9 +16,7 @@ const About = ({ pageWidth, pageYPosition, navbarSpace }) => {
         className="text-center shadow"
         style={{
           background:
-            pageYPosition > 0
-              ? "linear-gradient(90deg, rgb(206, 255, 244), rgb(206, 135, 42))"
-              : "rgba(255,255,255,0.2)",
+            pageYPosition > 0 ? "rgb(206, 135, 42)" : "rgba(255,255,255,0.2)",
           position: "sticky",
           top: navbarSpace,
         }}

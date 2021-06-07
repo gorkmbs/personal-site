@@ -21,7 +21,7 @@ const About = ({ pageWidth, pageYPosition, navbarSpace }) => {
           top: navbarSpace,
         }}
       >
-        About Me
+        About Görkem Buğra Saraç
       </h1>
       <div
         className="d-flex m-0 p-0 justify-content-around flex-wrap align-items-center"

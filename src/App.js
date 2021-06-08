@@ -21,7 +21,7 @@ function App() {
   };
 
   useEffect(() => {
-    setPageWidth(window.innerWidth);
+    scrolledPage();
     window.addEventListener("resize", scrolledPage);
     window.addEventListener("scroll", scrolledPage);
     return () => {

@@ -6,6 +6,9 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contacts from "./components/Contacts";
 
+// const urlServer = "http://localhost:5000";
+const urlServer = "https://tamzirtapoz.herokuapp.com";
+
 function App() {
   const [pageWidth, setPageWidth] = useState(800);
   const [pageYPosition, setPageYPosition] = useState(0);
@@ -33,11 +36,13 @@ function App() {
       <NavbarSide navbarSpace={navbarSpace} />
       <About
         pageWidth={pageWidth}
+        urlServer={urlServer}
         pageYPosition={pageYPosition}
         navbarSpace={navbarSpace}
       />
       <Projects
         pageWidth={pageWidth}
+        urlServer={urlServer}
         pageYPosition={pageYPosition}
         navbarSpace={navbarSpace}
       />

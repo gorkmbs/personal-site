@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import profile from "../assets/profile.jpg";
+import profile from "../assets/profile.png";
 import { generalInfo } from "../information";
 import { IconContext } from "react-icons";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";

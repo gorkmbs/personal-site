@@ -1,19 +1,20 @@
-import React, { useState } from "react";
-import profile from "../assets/profile.jpg";
-import { generalInfo } from "../information";
-import { IconContext } from "react-icons";
-import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
+import React from "react";
+import animals from "../assets/animals.png";
+import market from "../assets/market.png";
+import videos from "../assets/videos.png";
+import welcome from "../assets/welcome.png";
+import {
+  tamzirtapozParagraph1,
+  tamzirtapozContent,
+  tamzirtapozParagraph2,
+} from "../information";
 
 const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
-  const [toggleShowMore, setToggleShowMore] = useState(false);
-  const toggleShowMoreFunc = (e) => {
-    e.preventDefault();
-    setToggleShowMore(!toggleShowMore);
-  };
   return (
     <div
-      className="container-fluid m-0 p-0 projectsPageGeneral"
       id="projectsPage"
+      className="container-fluid m-0 p-0 projectsPageGeneral"
+      style={{ minHeight: "350px" }}
     >
       <h1
         className="text-center shadow"
@@ -21,70 +22,106 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
           background:
             pageYPosition >
             document.getElementById("projectsPage")?.offsetTop - navbarSpace
-              ? "rgb(206, 135, 42)"
+              ? "rgb(255, 168, 168)"
               : "rgba(255,255,255,0.2)",
           position: "sticky",
           top: navbarSpace,
         }}
       >
-        My Projects and Education Information
+        My Projects and Educational Information
       </h1>
       <div
-        className="d-flex m-0 p-0 justify-content-around flex-wrap align-items-center"
-        style={{ minHeight: "350px" }}
+        className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
+        style={{ background: "rgba(0,0,0,0.0)" }}
       >
-        <img src={profile} alt="Profile" className="profilePicture m-1 p-1" />
-        <div
-          className={`d-flex ${
-            pageWidth < 450 ? "m-0 p-4" : "m-4 p-4"
-          } justify-content-center cornerBorder`}
-        >
-          <span>
-            <IconContext.Provider
-              value={{
-                color: "rgba(50, 50, 255, 1)",
-                className: "global-class-name",
-                size: "20px",
-              }}
+        <div className="d-flex m-0 p-0 justify-content-center flex-wrap align-items-center">
+          <div
+            className="container-fluid m-0 p-4"
+            style={{
+              background: "rgba(255,255,255,0.7)",
+              border: "3px",
+              borderStyle: "hidden",
+              borderColor: "rgba(0,0,0,0)",
+              borderRadius: "50px",
+            }}
+          >
+            <h4
+              className="text-center"
+              style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
             >
-              <ImQuotesLeft />
-            </IconContext.Provider>{" "}
-            {pageWidth < 750 ? (
-              <>
-                {toggleShowMore ? generalInfo : generalInfo.substring(0, 344)}
+              Project Tamzirtapoz
+            </h4>
+            <a
+              href="https://tamzirtapoz.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              See the tamzirtapoz page while working
+            </a>
+            <p className="text-dark">{tamzirtapozParagraph1}</p>
+            <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
+              <div className="container-fluid m-0 p-0">
+                <ol>
+                  {tamzirtapozContent.map((item, index) => {
+                    return <li key={index}>{item}</li>;
+                  })}
+                </ol>
+              </div>
+              <div className="d-flex justify-content-around m-1 p-1 flex-wrap">
+                {pageWidth > 726 ? (
+                  <>
+                    {" "}
+                    <div className="d-flex m-0 p-1">
+                      <img
+                        className="img-fluid"
+                        src={welcome}
+                        alt="welcome"
+                        style={{ maxHeight: "200px" }}
+                      />
+                    </div>
+                    <div className="d-flex m-0 p-1">
+                      <img
+                        className="img-fluid"
+                        src={market}
+                        alt="market"
+                        style={{ height: "200px" }}
+                      />
+                    </div>
+                    <div className="d-flex m-0 p-1">
+                      <img
+                        className="img-fluid"
+                        src={videos}
+                        alt="videos"
+                        style={{ height: "200px" }}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
 
-                <span>
-                  <button
-                    className="linkWithoutBlueLine text-white"
-                    style={{
-                      border: "0px",
-                      borderStyle: "hidden",
-                      background: "transparent",
-                    }}
-                    onClick={(e) => {
-                      toggleShowMoreFunc(e);
-                    }}
-                  >
-                    {!toggleShowMore ? "...Show More" : "...Show Less"}
-                  </button>
-                </span>
-              </>
-            ) : (
-              generalInfo
-            )}{" "}
-            <IconContext.Provider
-              value={{
-                color: "rgba(50, 50, 255, 1)",
-                className: "global-class-name",
-                size: "20px",
-              }}
+                <div className="d-flex m-0 p-1">
+                  <img
+                    className="img-fluid"
+                    src={animals}
+                    alt="animals"
+                    style={{ height: "200px" }}
+                  />
+                </div>
+              </div>
+            </div>
+            <p>{tamzirtapozParagraph2}</p>
+            <a
+              href="https://github.com/tamzirtapoz/tamzirtapoz-Main-Frontend-React"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <ImQuotesRight />
-            </IconContext.Provider>
-          </span>
+              Source Code on GitHub
+            </a>
+          </div>
         </div>
       </div>
-      <div style={{ height: "300vh" }}></div>
+      <div style={{ height: "30px" }}></div>
     </div>
   );
 };

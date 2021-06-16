@@ -61,7 +61,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
                 className="text-center"
                 style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
               >
-                Project Tamzirtapoz
+                Project Tamzirtapoz {`(React.js Part)`}
               </h4>
               <a
                 href="https://tamzirtapoz.netlify.app/"
@@ -169,7 +169,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
           <Modal.Title id="contained-modal-title-vcenter">
             <div
               className="d-flex justify-content-end"
-              style={{ position: "absolute", width: "90%" }}
+              style={{ position: "absolute", width: "93%" }}
             >
               <button
                 className="btn btn-danger"

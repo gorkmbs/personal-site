@@ -13,7 +13,13 @@ import {
 
 const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
-  const [detailsData, setDetailsData] = useState({});
+  const [detailsData, setDetailsData] = useState({
+    title: "",
+    paragraph1: "",
+    photos: [],
+    ulItems: [],
+    paragraph2: "",
+  });
 
   return (
     <>
@@ -180,7 +186,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
         </Modal.Header>
         <Modal.Body>
           <p>{detailsData.paragraph1}</p>
-          <div className="d-flex justify-content-center align-items-center flex-wrap bg-dark">
+          <div className="d-flex justify-content-around align-items-center flex-wrap bg-dark">
             {detailsData.photos.map((photo, index) => {
               return (
                 <img

@@ -10,15 +10,15 @@ export const generalInfo = `I am a full-stack web developer. I love coding, beca
           of knowledge. But thanks to my interest to learn, apply and create new
           things, I really want to swim in this ocean.`;
 
-export const tamzirtapozParagraph1 = `This is a social media page that I built. It is a secure site. Tamzirtapoz uses JSON Web Token authorization. 
+export const tamzirtapozParagraph1 = `This is a social media web application that I built for improve myself. It is a secure site. Tamzirtapoz uses JSON Web Token authorization. 
   People need to be a member to see the contents. This application makes connection to the Node.js server which is served by Heroku. There are 5 main page.`;
 
 export const tamzirtapozContent = [
-  "Messaging",
-  "Animal Photos",
-  "Daily and Music Videos",
-  "Market-Tamzirtapoz (e-commerce)",
-  "Games",
+  { title: "Messaging" },
+  { title: "Animal Photos" },
+  { title: "Daily and Music Videos" },
+  { title: "Market-Tamzirtapoz (e-commerce)" },
+  { title: "Games" },
 ];
 
 export const tamzirtapozParagraph2 = `This site is based on React.js, Vanilla.js, Bootstrap, JWT Authentication`;

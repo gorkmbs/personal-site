@@ -3,6 +3,7 @@ import animals from "../assets/animals.png";
 import market from "../assets/market.png";
 import videos from "../assets/videos.png";
 import welcome from "../assets/welcome.png";
+import { GoMarkGithub } from "react-icons/go";
 import {
   tamzirtapozParagraph1,
   tamzirtapozContent,
@@ -63,14 +64,29 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
               <div className="container-fluid m-0 p-0">
                 <ol>
                   {tamzirtapozContent.map((item, index) => {
-                    return <li key={index}>{item}</li>;
+                    return (
+                      <li key={index}>
+                        {item.title}{" "}
+                        <button
+                          className="text-primary"
+                          style={{
+                            border: "0px",
+                            borderStyle: "solid",
+                            borderColor: "rgba(0,0,0,0)",
+                            background: "rgba(0,0,0,0)",
+                          }}
+                          onClick={(index) => {}}
+                        >
+                          show more
+                        </button>
+                      </li>
+                    );
                   })}
                 </ol>
               </div>
               <div className="d-flex justify-content-around m-1 p-1 flex-wrap">
                 {pageWidth > 726 ? (
                   <>
-                    {" "}
                     <div className="d-flex m-0 p-1">
                       <img
                         className="img-fluid"
@@ -116,7 +132,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Source Code on GitHub
+              Source Code on GitHub{" "}
+              <GoMarkGithub style={{ fontSize: "20px" }} />
             </a>
           </div>
         </div>

@@ -2,10 +2,16 @@ import React from "react";
 import { IconContext } from "react-icons";
 import { GoMarkGithub } from "react-icons/go";
 import { SiLinkedin } from "react-icons/si";
+import useSound from "use-sound";
+
+import clickEffect1 from "../soundEffects/clickEffect1.mp3";
 
 const NavbarSide = ({ navbarSpace }) => {
+  const [playClickEffect1] = useSound(clickEffect1);
+
   const handleClick = (e, adress) => {
     e.preventDefault();
+    playClickEffect1();
     window.scrollTo({
       left: 0,
       top: document.getElementById(adress).offsetTop - navbarSpace,

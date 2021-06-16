@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import animals from "../assets/animals.png";
-import market from "../assets/market.png";
+import messaging1 from "../assets/messaging1.jpg";
 import videos from "../assets/videos.png";
 import welcome from "../assets/welcome.png";
 import { GoMarkGithub } from "react-icons/go";
+import { Modal, Button } from "react-bootstrap";
 import {
   tamzirtapozParagraph1,
   tamzirtapozContent,
@@ -11,135 +12,207 @@ import {
 } from "../information";
 
 const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
-  return (
-    <div
-      id="projectsPage"
-      className="container-fluid m-0 p-0 projectsPageGeneral"
-      style={{ minHeight: "350px" }}
-    >
-      <h1
-        className="text-center shadow"
-        style={{
-          background:
-            pageYPosition >
-            document.getElementById("projectsPage")?.offsetTop - navbarSpace
-              ? "rgb(255, 168, 168)"
-              : "rgba(255,255,255,0.2)",
-          position: "sticky",
-          top: navbarSpace,
-        }}
-      >
-        My Projects and Educational Information
-      </h1>
-      <div
-        className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
-        style={{ background: "rgba(0,0,0,0.0)" }}
-      >
-        <div className="d-flex m-0 p-0 justify-content-center flex-wrap align-items-center">
-          <div
-            className="container-fluid m-0 p-4"
-            style={{
-              background: "rgba(255,255,255,0.7)",
-              border: "3px",
-              borderStyle: "hidden",
-              borderColor: "rgba(0,0,0,0)",
-              borderRadius: "50px",
-            }}
-          >
-            <h4
-              className="text-center"
-              style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
-            >
-              Project Tamzirtapoz
-            </h4>
-            <a
-              href="https://tamzirtapoz.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              See the tamzirtapoz page while working
-            </a>
-            <p className="text-dark">{tamzirtapozParagraph1}</p>
-            <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
-              <div className="container-fluid m-0 p-0">
-                <ol>
-                  {tamzirtapozContent.map((item, index) => {
-                    return (
-                      <li key={index}>
-                        {item.title}{" "}
-                        <button
-                          className="text-primary"
-                          style={{
-                            border: "0px",
-                            borderStyle: "solid",
-                            borderColor: "rgba(0,0,0,0)",
-                            background: "rgba(0,0,0,0)",
-                          }}
-                          onClick={(index) => {}}
-                        >
-                          show more
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ol>
-              </div>
-              <div className="d-flex justify-content-around m-1 p-1 flex-wrap">
-                {pageWidth > 726 ? (
-                  <>
-                    <div className="d-flex m-0 p-1">
-                      <img
-                        className="img-fluid"
-                        src={welcome}
-                        alt="welcome"
-                        style={{ maxHeight: "200px" }}
-                      />
-                    </div>
-                    <div className="d-flex m-0 p-1">
-                      <img
-                        className="img-fluid"
-                        src={market}
-                        alt="market"
-                        style={{ height: "200px" }}
-                      />
-                    </div>
-                    <div className="d-flex m-0 p-1">
-                      <img
-                        className="img-fluid"
-                        src={videos}
-                        alt="videos"
-                        style={{ height: "200px" }}
-                      />
-                    </div>
-                  </>
-                ) : (
-                  <></>
-                )}
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
+  const [detailsData, setDetailsData] = useState({});
 
-                <div className="d-flex m-0 p-1">
-                  <img
-                    className="img-fluid"
-                    src={animals}
-                    alt="animals"
-                    style={{ height: "200px" }}
-                  />
+  return (
+    <>
+      <div
+        id="projectsPage"
+        className="container-fluid m-0 p-0 projectsPageGeneral"
+        style={{ minHeight: "350px" }}
+      >
+        <h1
+          className="text-center shadow"
+          style={{
+            background:
+              pageYPosition >
+              document.getElementById("projectsPage")?.offsetTop - navbarSpace
+                ? "rgb(255, 168, 168)"
+                : "rgba(255,255,255,0.2)",
+            position: "sticky",
+            top: navbarSpace,
+          }}
+        >
+          My Projects and Educational Information
+        </h1>
+        <div
+          className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
+          style={{ background: "rgba(0,0,0,0.0)" }}
+        >
+          <div className="d-flex m-0 p-0 justify-content-center flex-wrap align-items-center">
+            <div
+              className="container-fluid m-0 p-4"
+              style={{
+                background: "rgba(255,255,255,0.7)",
+                border: "3px",
+                borderStyle: "hidden",
+                borderColor: "rgba(0,0,0,0)",
+                borderRadius: "50px",
+              }}
+            >
+              <h4
+                className="text-center"
+                style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
+              >
+                Project Tamzirtapoz
+              </h4>
+              <a
+                href="https://tamzirtapoz.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See the tamzirtapoz web application while working
+              </a>
+              <p className="text-dark">{tamzirtapozParagraph1}</p>
+              <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
+                <div className="container-fluid m-0 p-0">
+                  <ol>
+                    {tamzirtapozContent.map((item, index) => {
+                      return (
+                        <li key={index}>
+                          {item.title}{" "}
+                          <button
+                            className="text-primary"
+                            style={{
+                              border: "0px",
+                              borderStyle: "solid",
+                              borderColor: "rgba(0,0,0,0)",
+                              background: "rgba(0,0,0,0)",
+                            }}
+                            onClick={() => {
+                              setShowDetailsModal(true);
+                              setDetailsData(item);
+                            }}
+                          >
+                            details
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+                <div className="d-flex justify-content-around m-1 p-1 flex-wrap">
+                  {pageWidth > 726 ? (
+                    <>
+                      <div className="d-flex m-0 p-1">
+                        <img
+                          onClick={() => {}}
+                          className="img-fluid"
+                          src={welcome}
+                          alt="welcome"
+                          style={{ maxHeight: "200px" }}
+                        />
+                      </div>
+                      <div className="d-flex m-0 p-1">
+                        <img
+                          className="img-fluid"
+                          src={messaging1}
+                          alt="messaging"
+                          style={{ height: "200px" }}
+                        />
+                      </div>
+                      <div className="d-flex m-0 p-1">
+                        <img
+                          className="img-fluid"
+                          src={videos}
+                          alt="videos"
+                          style={{ height: "200px" }}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+
+                  <div className="d-flex m-0 p-1">
+                    <img
+                      className="img-fluid"
+                      src={animals}
+                      alt="animals"
+                      style={{ height: "200px" }}
+                    />
+                  </div>
                 </div>
               </div>
+              <p>{tamzirtapozParagraph2}</p>
+              <a
+                href="https://github.com/tamzirtapoz/tamzirtapoz-Main-Frontend-React"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Source Code on GitHub{" "}
+                <GoMarkGithub style={{ fontSize: "20px" }} />
+              </a>
             </div>
-            <p>{tamzirtapozParagraph2}</p>
-            <a
-              href="https://github.com/tamzirtapoz/tamzirtapoz-Main-Frontend-React"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Source Code on GitHub{" "}
-              <GoMarkGithub style={{ fontSize: "20px" }} />
-            </a>
           </div>
         </div>
+        <div style={{ height: "30px" }}></div>
       </div>
-      <div style={{ height: "30px" }}></div>
-    </div>
+      <Modal
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        show={showDetailsModal}
+        style={{ background: "rgba(0,188,212,0.3)" }}
+        onHide={() => {
+          setShowDetailsModal(false);
+        }}
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            <div
+              className="d-flex justify-content-end"
+              style={{ position: "absolute", width: "90%" }}
+            >
+              <button
+                className="btn btn-danger"
+                style={{ position: "fixed", zIndex: "2500" }}
+                onClick={() => {
+                  setShowDetailsModal(false);
+                }}
+              >
+                X
+              </button>
+            </div>
+            <h3 className="">{detailsData.title}</h3>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>{detailsData.paragraph1}</p>
+          <div className="d-flex justify-content-center align-items-center flex-wrap bg-dark">
+            {detailsData.photos.map((photo, index) => {
+              return (
+                <img
+                  src={photo}
+                  alt="Details"
+                  key={index}
+                  className="img-fluid m-2 rounded"
+                  style={{ maxWidth: "50vw", width: "250px" }}
+                />
+              );
+            })}
+          </div>
+          <ul>
+            {detailsData.ulItems.map((item, index) => {
+              return <li key={index}>{item}</li>;
+            })}
+          </ul>
+          <p>{detailsData.paragraph2}</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            className="text-capitalize"
+            variant="danger"
+            onClick={() => {
+              setShowDetailsModal(false);
+            }}
+          >
+            close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 

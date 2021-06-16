@@ -6,6 +6,8 @@ import videos1 from "./assets/videos1.jpg";
 import videos2 from "./assets/videos2.jpg";
 import market1 from "./assets/market1.jpg";
 import market2 from "./assets/market2.jpg";
+import lottery1 from "./assets/lottery1.jpg";
+import lottery2 from "./assets/lottery2.jpg";
 
 export const generalInfo = `I am a full-stack web developer. I love coding, because that's where I'm able to try out and learn
           something new. The fact that I'm able to apply my knowledge in
@@ -93,7 +95,19 @@ export const tamzirtapozContent = [
     paragraph2:
       "And many more features. I explained them as a second project down to the main page.",
   },
-  { title: "Games", paragraph1: "", photos: [], ulItems: [], paragraph2: "" },
+  {
+    title: "Games",
+    paragraph1:
+      "Bored users can play some games. For now there are 2 games. More small and funny games are coming soon. In lottery game, people can select six numbers and see their luck :)",
+    photos: [lottery1, lottery2],
+    ulItems: [
+      "The application automatically prevents wrong input",
+      "Users can select their numbers or the application can give a random number if user wants",
+      "After selecting numbers, users can sort numbers to see numbers easily",
+      "After drawings, users can see the results",
+    ],
+    paragraph2: "This is just a game for fun. No money taken from the users.",
+  },
 ];
 
 export const tamzirtapozParagraph2 = `This site is based on React.js, Vanilla.js, Bootstrap, JWT Authentication`;

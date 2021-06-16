@@ -11,6 +11,9 @@ import {
   tamzirtapozParagraph2,
 } from "../information";
 
+import useSound from "use-sound";
+import pageFlip from "../soundEffects/pageFlip.mp3";
+
 const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [detailsData, setDetailsData] = useState({
@@ -20,6 +23,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
     ulItems: [],
     paragraph2: "",
   });
+  const [playPageFlip] = useSound(pageFlip);
 
   return (
     <>
@@ -87,8 +91,122 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
                               background: "rgba(0,0,0,0)",
                             }}
                             onClick={() => {
-                              setShowDetailsModal(true);
                               setDetailsData(item);
+                              playPageFlip();
+                              setShowDetailsModal(true);
+                            }}
+                          >
+                            details
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+                <div className="d-flex justify-content-around m-1 p-1 flex-wrap">
+                  {pageWidth > 726 ? (
+                    <>
+                      <div className="d-flex m-0 p-1">
+                        <img
+                          onClick={() => {}}
+                          className="img-fluid"
+                          src={welcome}
+                          alt="welcome"
+                          style={{ maxHeight: "200px" }}
+                        />
+                      </div>
+                      <div className="d-flex m-0 p-1">
+                        <img
+                          className="img-fluid"
+                          src={messaging1}
+                          alt="messaging"
+                          style={{ height: "200px" }}
+                        />
+                      </div>
+                      <div className="d-flex m-0 p-1">
+                        <img
+                          className="img-fluid"
+                          src={videos}
+                          alt="videos"
+                          style={{ height: "200px" }}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <></>
+                  )}
+
+                  <div className="d-flex m-0 p-1">
+                    <img
+                      className="img-fluid"
+                      src={animals}
+                      alt="animals"
+                      style={{ height: "200px" }}
+                    />
+                  </div>
+                </div>
+              </div>
+              <p>{tamzirtapozParagraph2}</p>
+              <a
+                href="https://github.com/tamzirtapoz/tamzirtapoz-Main-Frontend-React"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Source Code on GitHub{" "}
+                <GoMarkGithub style={{ fontSize: "20px" }} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
+          style={{ background: "rgba(0,0,0,0.0)" }}
+        >
+          <div className="d-flex m-0 p-0 justify-content-center flex-wrap align-items-center">
+            <div
+              className="container-fluid m-0 p-4"
+              style={{
+                background: "rgba(255,255,255,0.7)",
+                border: "3px",
+                borderStyle: "hidden",
+                borderColor: "rgba(0,0,0,0)",
+                borderRadius: "50px",
+              }}
+            >
+              <h4
+                className="text-center"
+                style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
+              >
+                Project Market {`(React.js Part)`}
+              </h4>
+              <a
+                href="https://market-tamzirtapoz.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See the market web application in action
+              </a>
+              <p className="text-dark">{tamzirtapozParagraph1}</p>
+              <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
+                <div className="container-fluid m-0 p-0">
+                  <ol>
+                    {tamzirtapozContent.map((item, index) => {
+                      return (
+                        <li key={index}>
+                          {item.title}{" "}
+                          <button
+                            className="text-primary"
+                            style={{
+                              border: "0px",
+                              borderStyle: "solid",
+                              borderColor: "rgba(0,0,0,0)",
+                              background: "rgba(0,0,0,0)",
+                            }}
+                            onClick={() => {
+                              setDetailsData(item);
+                              playPageFlip();
+                              setShowDetailsModal(true);
                             }}
                           >
                             details

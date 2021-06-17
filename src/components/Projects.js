@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import animals from "../assets/animals.png";
+import animals from "../assets/animals.jpg";
 import messaging1 from "../assets/messaging1.jpg";
 import videos from "../assets/videos.png";
 import welcome from "../assets/welcome.png";
+import generalMain1 from "../assets/market/generalMain1.png";
+import sidebar1 from "../assets/market/sidebar1.jpg";
+import addBag1 from "../assets/market/addBag1.jpg";
+import payment2 from "../assets/market/payment2.jpg";
 import { GoMarkGithub } from "react-icons/go";
 import { Modal, Button } from "react-bootstrap";
 import {
@@ -28,6 +32,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
     ulItems: [],
     paragraph2: "",
   });
+  const [showBiggerImageModal, setShowBiggerImageModal] = useState(false);
+  const [currentBigImage, setCurrentBigImage] = useState(animals);
   const [playPageFlip] = useSound(pageFlip);
 
   return (
@@ -116,7 +122,10 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
                     <>
                       <div className="d-flex m-0 p-1">
                         <img
-                          onClick={() => {}}
+                          onClick={() => {
+                            setCurrentBigImage(welcome);
+                            setShowBiggerImageModal(true);
+                          }}
                           className="img-fluid"
                           src={welcome}
                           alt="welcome"
@@ -125,14 +134,22 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
                       </div>
                       <div className="d-flex m-0 p-1">
                         <img
+                          onClick={() => {
+                            setCurrentBigImage(animals);
+                            setShowBiggerImageModal(true);
+                          }}
                           className="img-fluid"
-                          src={messaging1}
+                          src={animals}
                           alt="messaging"
                           style={{ height: "200px" }}
                         />
                       </div>
                       <div className="d-flex m-0 p-1">
                         <img
+                          onClick={() => {
+                            setCurrentBigImage(videos);
+                            setShowBiggerImageModal(true);
+                          }}
                           className="img-fluid"
                           src={videos}
                           alt="videos"
@@ -146,8 +163,12 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
 
                   <div className="d-flex m-0 p-1">
                     <img
+                      onClick={() => {
+                        setCurrentBigImage(messaging1);
+                        setShowBiggerImageModal(true);
+                      }}
                       className="img-fluid"
-                      src={animals}
+                      src={messaging1}
                       alt="animals"
                       style={{ height: "200px" }}
                     />
@@ -231,25 +252,36 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
                     <>
                       <div className="d-flex m-0 p-1">
                         <img
-                          onClick={() => {}}
+                          onClick={() => {
+                            setCurrentBigImage(sidebar1);
+                            setShowBiggerImageModal(true);
+                          }}
                           className="img-fluid"
-                          src={welcome}
+                          src={sidebar1}
                           alt="welcome"
                           style={{ maxHeight: "200px" }}
                         />
                       </div>
                       <div className="d-flex m-0 p-1">
                         <img
+                          onClick={() => {
+                            setCurrentBigImage(addBag1);
+                            setShowBiggerImageModal(true);
+                          }}
                           className="img-fluid"
-                          src={messaging1}
+                          src={addBag1}
                           alt="messaging"
                           style={{ height: "200px" }}
                         />
                       </div>
                       <div className="d-flex m-0 p-1">
                         <img
+                          onClick={() => {
+                            setCurrentBigImage(payment2);
+                            setShowBiggerImageModal(true);
+                          }}
                           className="img-fluid"
-                          src={videos}
+                          src={payment2}
                           alt="videos"
                           style={{ height: "200px" }}
                         />
@@ -261,8 +293,12 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
 
                   <div className="d-flex m-0 p-1">
                     <img
+                      onClick={() => {
+                        setCurrentBigImage(generalMain1);
+                        setShowBiggerImageModal(true);
+                      }}
                       className="img-fluid"
-                      src={animals}
+                      src={generalMain1}
                       alt="animals"
                       style={{ height: "200px" }}
                     />
@@ -318,6 +354,10 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
             {detailsData.photos.map((photo, index) => {
               return (
                 <img
+                  onClick={() => {
+                    setCurrentBigImage(photo);
+                    setShowBiggerImageModal(true);
+                  }}
                   src={photo}
                   alt="Details"
                   key={index}
@@ -345,6 +385,43 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
             close
           </Button>
         </Modal.Footer>
+      </Modal>
+      <Modal
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        show={showBiggerImageModal}
+        style={{ background: "rgba(0,0,0,1)" }}
+        onHide={() => {
+          setShowBiggerImageModal(false);
+        }}
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            <div
+              className="d-flex justify-content-end"
+              style={{ position: "absolute", width: "93%" }}
+            >
+              <button
+                className="btn btn-danger"
+                style={{ position: "fixed", zIndex: "2500" }}
+                onClick={() => {
+                  setShowBiggerImageModal(false);
+                }}
+              >
+                X
+              </button>
+            </div>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <img
+            src={currentBigImage}
+            alt="Bigger"
+            style={{ width: "100%" }}
+            className="img-fluid"
+          />
+        </Modal.Body>
       </Modal>
     </>
   );

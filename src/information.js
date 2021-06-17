@@ -1,6 +1,6 @@
 import messaging1 from "./assets/messaging1.jpg";
 import messaging2 from "./assets/messaging2.jpg";
-import animals from "./assets/animals.png";
+import animals from "./assets/animals.jpg";
 import animals2 from "./assets/animals2.jpg";
 import videos1 from "./assets/videos1.jpg";
 import videos2 from "./assets/videos2.jpg";
@@ -8,6 +8,10 @@ import market1 from "./assets/market1.jpg";
 import market2 from "./assets/market2.jpg";
 import lottery1 from "./assets/lottery1.jpg";
 import lottery2 from "./assets/lottery2.jpg";
+import addProduct1 from "./assets/market/addProduct1.jpg";
+import addProduct2 from "./assets/market/addProduct2.jpg";
+import productPage1 from "./assets/market/productPage1.jpg";
+import productPage2 from "./assets/market/productPage2.jpg";
 
 /*
  *** General info about Görkem Buğra Saraç
@@ -132,7 +136,7 @@ export const marketContent = [
     title: "Sell Products",
     paragraph1:
       "Messaging is one of the strongest side of this site. It has multiple features. A person can easily send a message to other person. Wrong message can be easily deleted. User can see if the other people writing or not.",
-    photos: [messaging1, messaging2],
+    photos: [addProduct1, addProduct2, productPage1, productPage2],
     ulItems: [
       "Easily send a message",
       "Learn that if your message is seen or not",

@@ -10,6 +10,11 @@ import {
   tamzirtapozContent,
   tamzirtapozParagraph2,
 } from "../information";
+import {
+  marketParagraph1,
+  marketContent,
+  marketParagraph2,
+} from "../information";
 
 import useSound from "use-sound";
 import pageFlip from "../soundEffects/pageFlip.mp3";
@@ -46,6 +51,9 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
         >
           My Projects and Educational Information
         </h1>
+
+        {/* main tamzirtapoz */}
+
         <div
           className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
           style={{ background: "rgba(0,0,0,0.0)" }}
@@ -159,6 +167,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
           </div>
         </div>
 
+        {/* market tamzirtapoz */}
+
         <div
           className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
           style={{ background: "rgba(0,0,0,0.0)" }}
@@ -187,11 +197,11 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
               >
                 See the market web application in action
               </a>
-              <p className="text-dark">{tamzirtapozParagraph1}</p>
+              <p className="text-dark">{marketParagraph1}</p>
               <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
                 <div className="container-fluid m-0 p-0">
                   <ol>
-                    {tamzirtapozContent.map((item, index) => {
+                    {marketContent.map((item, index) => {
                       return (
                         <li key={index}>
                           {item.title}{" "}
@@ -259,7 +269,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
                   </div>
                 </div>
               </div>
-              <p>{tamzirtapozParagraph2}</p>
+              <p>{marketParagraph2}</p>
               <a
                 href="https://github.com/tamzirtapoz/tamzirtapoz-Main-Frontend-React"
                 target="_blank"

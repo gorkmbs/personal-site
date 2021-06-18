@@ -20,10 +20,16 @@ import {
   marketParagraph2,
 } from "../information";
 
+import {
+  backendNodeParagraph1,
+  backendNodeContent,
+  backendNodeParagraph2,
+} from "../information";
+
 import useSound from "use-sound";
 import pageFlip from "../soundEffects/pageFlip.mp3";
 
-const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
+const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [detailsData, setDetailsData] = useState({
     title: "",
@@ -55,7 +61,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
             top: navbarSpace,
           }}
         >
-          My Projects and Educational Information
+          Projects and Education
         </h1>
 
         {/* main tamzirtapoz */}
@@ -308,6 +314,108 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
               <p>{marketParagraph2}</p>
               <a
                 href="https://github.com/tamzirtapoz/tamzirtapoz-marketPlace-Frontend-React-Redux"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Source Code on GitHub{" "}
+                <GoMarkGithub style={{ fontSize: "20px" }} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* tamzirtapoz node.js api */}
+
+        <div
+          className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
+          style={{ background: "rgba(0,0,0,0.0)" }}
+        >
+          <div className="d-flex m-0 p-0 justify-content-center flex-wrap align-items-center">
+            <div
+              className="container-fluid m-0 p-4"
+              style={{
+                background: "rgba(255,255,255,0.7)",
+                border: "3px",
+                borderStyle: "hidden",
+                borderColor: "rgba(0,0,0,0)",
+                borderRadius: "50px",
+              }}
+            >
+              <h4
+                className="text-center"
+                style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
+              >
+                Tamzirtapoz API {`(Node.js Part)`}
+              </h4>
+              <h5 className="text-danger m-0 p-0">
+                Example page that require authentication:
+              </h5>
+              <a
+                href={urlServer + "/users/protected"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                User's Protected Area
+              </a>
+              <h5 className="text-success m-0 p-0">
+                Example pages that do not require authentication:
+              </h5>
+              <a
+                href={urlServer + "/downloads/open-personal-cv"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                See my CV via Tamzirtapoz API
+              </a>
+              {" or "}
+              <a
+                href={urlServer + "/market/categories"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Categories list from Tamzirtapoz API
+              </a>
+              {" or "}
+              <a
+                href={urlServer + "/market/all-products"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Products list from Tamzirtapoz API
+              </a>
+              <p className="text-dark">{backendNodeParagraph1}</p>
+              <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
+                <div className="container-fluid m-0 p-0">
+                  <ol>
+                    {backendNodeContent.map((item, index) => {
+                      return (
+                        <li key={index}>
+                          {item.title}{" "}
+                          <button
+                            className="text-primary"
+                            style={{
+                              border: "0px",
+                              borderStyle: "solid",
+                              borderColor: "rgba(0,0,0,0)",
+                              background: "rgba(0,0,0,0)",
+                            }}
+                            onClick={() => {
+                              setDetailsData(item);
+                              playPageFlip();
+                              setShowDetailsModal(true);
+                            }}
+                          >
+                            details
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+              </div>
+              <p>{backendNodeParagraph2}</p>
+              <a
+                href="https://github.com/tamzirtapoz/tamzirtapoz-Node.js-Backend"
                 target="_blank"
                 rel="noopener noreferrer"
               >

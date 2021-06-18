@@ -125,6 +125,30 @@ export const tamzirtapozContent = [
     ],
     paragraph2: "This is just a game for fun. No money taken from the users.",
   },
+  {
+    title: "Dependencies",
+    paragraph1: `Dependencies are listed below. For more detail please visit GitHub page`,
+    photos: [],
+    ulItems: [
+      "axios",
+      "base64url",
+      "bootstrap",
+      "dotenv",
+      "joi",
+      "js-cookie",
+      "react",
+      "react-bootstrap",
+      "react-color",
+      "react-datepicker",
+      "react-dom",
+      "react-google-recaptcha",
+      "react-icons",
+      "react-router-dom",
+      "react-scripts",
+      "use-sound",
+    ],
+    paragraph2: "",
+  },
 ];
 
 export const tamzirtapozParagraph2 = `This site is based on React.js, Vanilla.js, Bootstrap, JWT Authentication`;
@@ -210,6 +234,67 @@ export const marketContent = [
     ],
     paragraph2: "Discounts make products more affordable.",
   },
+  {
+    title: "Dependencies",
+    paragraph1:
+      "Dependencies are listed below. For more detail please visit GitHub page",
+    photos: [],
+    ulItems: [
+      "axios",
+      "bootstrap",
+      "joi",
+      "js-cookie",
+      "node-sass",
+      "react",
+      "react-bootstrap",
+      "react-dom",
+      "react-icons",
+      "react-intl",
+      "react-pro-sidebar",
+      "react-redux",
+      "react-router-dom",
+      "react-scripts",
+      "redux",
+      "use-sound",
+    ],
+    paragraph2: "",
+  },
 ];
 
 export const marketParagraph2 = `This site is based on React.js, Vanilla.js, Bootstrap, Redux, React-Redux JWT Authentication`;
+
+/*
+ *** tamzirtapoz Node.js Backend Server
+ */
+
+export const backendNodeParagraph1 = `Tamzirtapoz API is the backend server for all of my other sites. This site is carefully implemented for speed and security. This backend server has both public key and private key to authenticate users. There are also some parts which do not require authentication like my personal cv page. In GitHub, ".env / private and public key pairs" files intentionally deleted for security.
+This server is served by heroku free hosting.`;
+
+export const backendNodeContent = [
+  {
+    title: "Dependencies",
+    paragraph1:
+      "Dependencies are listed below. For more detail please visit GitHub page",
+    photos: [],
+    ulItems: [
+      "base64url",
+      "cors",
+      "dotenv",
+      "express",
+      "jsonwebtoken",
+      "mongoose",
+      "passport",
+      "passport-jwt",
+      "request-ip",
+    ],
+    paragraph2: "",
+  },
+];
+
+export const backendNodeParagraph2 = `This site is based on Node.js, Vanilla.js, Express, Passport, Passport JWT Strategy`;
+
+/*
+ *** Educational Informatıon Part
+ */
+
+export const educational = [{ subject: "HTML-CSS-JAVASCRIPT", videos: [] }];

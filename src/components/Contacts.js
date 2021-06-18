@@ -27,7 +27,7 @@ const Contacts = ({ pageWidth, pageYPosition, navbarSpace }) => {
           top: navbarSpace,
         }}
       >
-        My Contact Information
+        Contact Information
       </h1>
       <div
         className="d-flex m-0 p-0 justify-content-around flex-wrap align-items-center"

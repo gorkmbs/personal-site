@@ -307,7 +307,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace }) => {
               </div>
               <p>{marketParagraph2}</p>
               <a
-                href="https://github.com/tamzirtapoz/tamzirtapoz-Main-Frontend-React"
+                href="https://github.com/tamzirtapoz/tamzirtapoz-marketPlace-Frontend-React-Redux"
                 target="_blank"
                 rel="noopener noreferrer"
               >

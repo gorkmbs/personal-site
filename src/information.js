@@ -297,4 +297,118 @@ export const backendNodeParagraph2 = `This site is based on Node.js, Vanilla.js,
  *** Educational Informatıon Part
  */
 
-export const educational = [{ subject: "HTML-CSS-JAVASCRIPT", videos: [] }];
+export const educational = [
+  {
+    subject: "HTML-CSS-JAVASCRIPT",
+    videos: [
+      {
+        title: "CSS Tutorial - Zero to Hero (Complete Course)",
+        url: "https://youtu.be/1Rs2ND1ryYc",
+      },
+      {
+        title: "Learn HTML5 and CSS3 From Scratch - Full Course",
+        url: "https://youtu.be/mU6anWqZJcc",
+      },
+      {
+        title: "Learn HTML5 and CSS3 For Beginners - Crash Course",
+        url: "https://youtu.be/vQWlgd7hV4A",
+      },
+      {
+        title: "HTML Full Course - Build a Website Tutorial",
+        url: "https://youtu.be/pQN-pnXPaVg",
+      },
+      {
+        title: "Learn JavaScript - Full Course for Beginners",
+        url: "https://youtu.be/PkZNo7MFNFg",
+      },
+      {
+        title:
+          "(Turkish JS Series)JavaScript Karmaşası : 00 : JavaScript Tarihi ve Versiyon Karmaşası",
+        url: "https://youtu.be/99uPfA4Hv0Q",
+      },
+      { title: "Javascript Fundamentals", url: "https://youtu.be/2Ji-clqUYnA" },
+      {
+        title: "15 Vanilla Javascript Projects",
+        url: "https://youtu.be/c5SIG7Ie0dM",
+      },
+      {
+        title: "(Full Series) Javascript Nuggets",
+        url: "https://youtu.be/80KX6aD9R7M",
+      },
+      {
+        title: "(Full Series) Javascript Challenges",
+        url: "https://youtu.be/cH7iqat59zA",
+      },
+    ],
+    webPages: [{ title: "", url: "" }],
+  },
+  {
+    subject: "NODE.JS-EXPRESS-PASSPORT",
+    videos: [
+      {
+        title: "Build A Node.js API Authentication With JWT Tutorial",
+        url: "https://youtu.be/2jqok-WgelI",
+      },
+      {
+        title:
+          "Build A Restful Api With Node.js Express & MongoDB | Rest Api Tutorial",
+        url: "https://youtu.be/vjf774RKrLc",
+      },
+      {
+        title: "Learn Node.js - Full Tutorial for Beginners",
+        url: "https://youtu.be/RLtyhwFtXQA",
+      },
+      {
+        title: "Getting Started with Node.js - Full Tutorial",
+        url: "https://youtu.be/gG3pytAY2MY",
+      },
+      {
+        title: "User Authentication in Web Apps (Passport.js, Node, Express)",
+        url: "https://youtu.be/F-sFp_AvHc8",
+      },
+      {
+        title: "Node and Express Tutorial",
+        url: "https://youtu.be/TNV0_7QRDwY",
+      },
+      {
+        title: "Node Projects - Task Manager API",
+        url: "https://youtu.be/jIsj0upCBAM",
+      },
+      {
+        title:
+          "Build and Deploy a Realtime Chat Application - Socket.io, Node.js, and React.js",
+        url: "https://youtu.be/ZwFA3YMfkoc",
+      },
+      {
+        title:
+          "Learn the MERN Stack - Full Tutorial for Beginners (MongoDB, Express, React, NodeJS) in 12Hrs (2021)",
+        url: "https://youtu.be/ktjafK4SgWM",
+      },
+      {
+        title:
+          "Learn the MERN Stack - Full Tutorial (MongoDB, Express, React, Node.js)",
+        url: "https://youtu.be/7CqJlxBYj-M",
+      },
+      {
+        title:
+          "MongoDB + Mongoose + Node.js Crash Course | CRUD and fundamentals of MongoDB",
+        url: "https://youtu.be/5QEwqX5U_2M",
+      },
+      {
+        title: "(Full Series) Introduction | MongoDB | Tutorial ",
+        url: "https://youtu.be/vb8xZ-bvxbg",
+      },
+      {
+        title:
+          "Heroku Express App Vs Netlify Serverless App - Free Node.js Hosting",
+        url: "https://youtu.be/hpvCd5WKGLU",
+      },
+    ],
+    webPages: [{ title: "", url: "" }],
+  },
+  {
+    subject: "REACT.JS-BOOTSTRAP-REDUX",
+    videos: [{ title: "", url: "" }],
+    webPages: [{ title: "", url: "" }],
+  },
+];

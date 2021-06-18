@@ -322,8 +322,7 @@ export const educational = [
         url: "https://youtu.be/PkZNo7MFNFg",
       },
       {
-        title:
-          "(Turkish JS Series)JavaScript Karmaşası : 00 : JavaScript Tarihi ve Versiyon Karmaşası",
+        title: "(Turkish JS Series) JavaScript Karmaşası ",
         url: "https://youtu.be/99uPfA4Hv0Q",
       },
       { title: "Javascript Fundamentals", url: "https://youtu.be/2Ji-clqUYnA" },
@@ -339,8 +338,12 @@ export const educational = [
         title: "(Full Series) Javascript Challenges",
         url: "https://youtu.be/cH7iqat59zA",
       },
+      {
+        title: "(Turkish Series) Sıfırdan HTML ve CSS Eğitimi",
+        url: "https://youtu.be/yJsq0bqChko",
+      },
     ],
-    webPages: [{ title: "", url: "" }],
+    webPages: [],
   },
   {
     subject: "NODE.JS-EXPRESS-PASSPORT",
@@ -408,7 +411,69 @@ export const educational = [
   },
   {
     subject: "REACT.JS-BOOTSTRAP-REDUX",
-    videos: [{ title: "", url: "" }],
+    videos: [
+      {
+        title: "React JS Crash Course 2021",
+        url: "https://youtu.be/w7ejDZ8SWv8",
+      },
+      {
+        title: "React JS - React Tutorial for Beginners",
+        url: "https://youtu.be/Ke90Tje7VS0",
+      },
+      {
+        title: "React Tutorial For Beginners",
+        url: "https://youtu.be/dGcsHMXbSOA",
+      },
+      {
+        title: "React Router Tutorial | React For Beginners",
+        url: "https://youtu.be/Law7wfdg_ls",
+      },
+      { title: "React Security", url: "https://youtu.be/qDndmRvvDJg" },
+      {
+        title: "(Turkish Series) Yeni Başlayanlar İçin REACT ",
+        url: "https://youtu.be/jig4GPO7OTo",
+      },
+      {
+        title:
+          "React Tutorial - Fundamentals, Hooks, Context API, React Router, Custom Hooks",
+        url: "https://youtu.be/iZhV0bILFb0",
+      },
+      { title: "React Projects", url: "https://youtu.be/ly3m6mv5qvg" },
+      {
+        title:
+          "Build a POPUP component in React JS ~ A Beginner Tutorial with React Hooks!",
+        url: "https://youtu.be/i8fAO_zyFAM",
+      },
+      {
+        title: "Bootstrap 4 Tutorial + Project",
+        url: "https://youtu.be/Uhy3gtZoeOM",
+      },
+      {
+        title: "React Bootstrap Tutorial",
+        url: "https://youtu.be/8pKjULHzs0s",
+      },
+      {
+        title: "Redux Tutorial - Learn Redux from Scratch",
+        url: "https://youtu.be/poQXNp9ItL4",
+      },
+      {
+        title:
+          "React JS Tutorial for Beginners - Full Course in 12 Hours [2021]",
+        url: "https://youtu.be/-cMqr9HpZ-Y",
+      },
+      {
+        title: "React Phone E-Commerce Project",
+        url: "https://youtu.be/-edmQKcOW8s",
+      },
+      {
+        title: "Redux For Beginners | React Redux Tutorial",
+        url: "https://youtu.be/CVpUuw9XSjY",
+      },
+      {
+        title: "React Project - Beach Resort",
+        url: "https://youtu.be/ScDWrogElmo",
+      },
+    ],
     webPages: [{ title: "", url: "" }],
   },
 ];

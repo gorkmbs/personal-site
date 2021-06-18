@@ -9,6 +9,8 @@ import market2 from "./assets/market2.jpg";
 import lottery1 from "./assets/lottery1.jpg";
 import lottery2 from "./assets/lottery2.jpg";
 import bag1 from "./assets//market/bag1.jpg";
+import addBag1 from "./assets//market/addBag1.jpg";
+import payment1 from "./assets//market/payment1.jpg";
 import oldPurchases1 from "./assets//market/oldPurchases1.jpg";
 import addProduct1 from "./assets/market/addProduct1.jpg";
 import addProduct2 from "./assets/market/addProduct2.jpg";
@@ -172,7 +174,7 @@ export const marketContent = [
     title: "Shopping Bag",
     paragraph1:
       "The bag icon can be easily seen from everywhere in the page. If a person adds a product to bag, the counter appears near the bag icon. Buyers can easily chang the amount of product in this section or they can remove the product from the bag.",
-    photos: [bag1, oldPurchases1],
+    photos: [bag1, oldPurchases1, payment1, addBag1],
     ulItems: [
       "Counter on the icon",
       "Change the amount of products",
@@ -210,4 +212,4 @@ export const marketContent = [
   },
 ];
 
-export const marketParagraph2 = `This site is based on React.js, Vanilla.js, Bootstrap, JWT Authentication`;
+export const marketParagraph2 = `This site is based on React.js, Vanilla.js, Bootstrap, Redux, React-Redux JWT Authentication`;

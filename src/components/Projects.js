@@ -430,52 +430,56 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
         <div style={{ height: "20px" }}></div>
         <div style={{ background: "blue", height: "3px" }}></div>
         <div style={{ height: "20px" }}></div>
-        <div
-          className="container-fluid m-0 p-2"
-          style={{
-            background: "rgba(255,255,255,0.2)",
-            border: "5px solid rgba(255,255,255,1)",
-            borderRadius: "35px",
-          }}
-        >
-          <h1 className="text-center">Education</h1>
-          {educational.map((item, index) => {
-            return (
-              <div className="d-flex justify-content-center" key={index}>
-                <div
-                  className="mb-4 p-3"
-                  style={{
-                    width: "95vw",
-                    maxWidth: "700px",
-                    background:
-                      "linear-gradient(90deg, rgba(255,255,255,1) ,rgba(255, 168, 168, 0.3))",
-                    border: "1px solid rgba(0,0,0,0.2)",
-                    borderRadius: "35px",
-                  }}
-                >
-                  <h4 className="text-center text-primary">{item.subject}</h4>
-                  <h5>Video Courses</h5>
-                  <ol>
-                    {item.videos.map((video, index2) => {
-                      return (
-                        <li key={index2} className="text-primary">
-                          <a
-                            href={video.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-dark"
-                          >
-                            {video.title}
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ol>
+        <div className="container-fluid m-0 p-4">
+          <div
+            className="container-fluid"
+            style={{
+              background: "rgba(255, 255, 234, 0.5)",
+              border: "15px double rgba(255,255,255,1)",
+              borderRadius: "35px",
+            }}
+          >
+            <h1 className="text-center">Education</h1>
+            {educational.map((item, index) => {
+              return (
+                <div className="d-flex justify-content-center" key={index}>
+                  <div
+                    className="mb-4 p-3"
+                    style={{
+                      width: "95vw",
+                      maxWidth: "700px",
+                      boxShadow: "10px 10px 10px rgba(0,0,0,0.4)",
+                      background:
+                        "linear-gradient(90deg, rgba(255,255,255,1) ,rgba(255, 255, 255, 0.3))",
+                      border: "1px solid rgba(0,0,0,0.2)",
+                      borderRadius: "35px",
+                    }}
+                  >
+                    <h4 className="text-center text-primary">{item.subject}</h4>
+                    <h5>Video Courses</h5>
+                    <ol>
+                      {item.videos.map((video, index2) => {
+                        return (
+                          <li key={index2} className="text-primary">
+                            <a
+                              href={video.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-dark"
+                            >
+                              {video.title}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
+        <div style={{ height: "30px" }}></div>
       </div>
       <Modal
         size="lg"

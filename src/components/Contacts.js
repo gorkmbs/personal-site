@@ -36,7 +36,7 @@ const Contacts = ({ urlServer, pageYPosition, navbarSpace }) => {
           setSubmit("Send Mail");
         } else {
           setIsErrorGeneral(true);
-          setErrorGeneral(response.data.msg);
+          setErrorGeneral("Server Side Error !");
           setSubmit("Send Mail");
         }
       })

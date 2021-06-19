@@ -373,9 +373,21 @@ const Contacts = ({ urlServer, pageYPosition, navbarSpace }) => {
             </div>
             <br />
             {isErrorGeneral ? (
-              <h1 id="name" className="text-danger">
-                {errorGeneral}
-              </h1>
+              <>
+                {errorGeneral === "Successfully sent !" ? (
+                  <>
+                    <h1 id="name" className="text-success">
+                      {errorGeneral}
+                    </h1>
+                  </>
+                ) : (
+                  <>
+                    <h1 id="name" className="text-danger">
+                      {errorGeneral}
+                    </h1>
+                  </>
+                )}
+              </>
             ) : (
               ""
             )}

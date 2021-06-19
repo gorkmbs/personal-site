@@ -97,7 +97,7 @@ const About = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Open in browser
+              Open on Browser
             </a>
           </p>
         </div>

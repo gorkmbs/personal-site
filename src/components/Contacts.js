@@ -117,8 +117,10 @@ const Contacts = ({ urlServer, pageYPosition, navbarSpace }) => {
 
     if (localError[0] || localError[1] || localError[2] || localError[3]) {
       setIsErrorGeneral(true);
+      setErrorGeneral("");
     } else {
       setIsErrorGeneral(false);
+      setErrorGeneral("");
     }
   }, [yourName, yourEmailAddress, subject, message, showMailModal]);
 

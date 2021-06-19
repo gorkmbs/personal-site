@@ -47,6 +47,7 @@ function App() {
         navbarSpace={navbarSpace}
       />
       <Contacts
+        urlServer={urlServer}
         pageWidth={pageWidth}
         pageYPosition={pageYPosition}
         navbarSpace={navbarSpace}

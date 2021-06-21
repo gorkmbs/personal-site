@@ -20,6 +20,18 @@ const Contacts = ({ urlServer, pageYPosition, navbarSpace }) => {
   const [errorGeneral, setErrorGeneral] = useState("");
   const [isErrorGeneral, setIsErrorGeneral] = useState(true);
   const [submit, setSubmit] = useState("Send Mail");
+  const [openedDirectMail, setOpenedDirectMail] = useState(false);
+
+  useEffect(() => {
+    let testUrl = window.location.pathname;
+    if (String(testUrl) === "/direct-mail") {
+      if (!openedDirectMail) {
+        setShowMailModal(true);
+        setOpenedDirectMail(true);
+      }
+    }
+    return () => {};
+  }, [openedDirectMail]);
 
   const handleSendMail = (e) => {
     e.preventDefault();

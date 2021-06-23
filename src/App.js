@@ -5,7 +5,7 @@ import NavbarSide from "./components/NavbarSide";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Contacts from "./components/Contacts";
-const axios = require("axios")
+const axios = require("axios");
 
 // const urlServer = "http://localhost:5000";
 const urlServer = "https://tamzirtapoz.herokuapp.com";
@@ -14,21 +14,24 @@ function App() {
   const [pageWidth, setPageWidth] = useState(800);
   const [pageYPosition, setPageYPosition] = useState(0);
   const [navbarSpace, setNavbarSpace] = useState(0);
+  // Heroku servers need a hello to start the server. Free plans automatically stop server after 30min no activity.
   const [saidHelloBackend, setSaidHelloBackend] = useState(false);
 
   useEffect(() => {
     if (!saidHelloBackend) {
-    axios({
-    method: "post",
-    url: urlServer + "/users/hello-backend",
-    data: {siteName: "Portfolio"}
-  })
-    .then(() => {
-      setSaidHelloBackend(true);
-    }).catch((err) => {console.log(err);})
-}
-
-  }, [saidHelloBackend])
+      axios({
+        method: "post",
+        url: urlServer + "/users/hello-backend",
+        data: { siteName: "Portfolio" },
+      })
+        .then(() => {
+          setSaidHelloBackend(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [saidHelloBackend]);
 
   const scrolledPage = () => {
     setPageWidth(window.innerWidth);

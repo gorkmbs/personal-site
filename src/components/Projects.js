@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import animals from "../assets/animals.jpg";
-import messaging1 from "../assets/messaging1.jpg";
-import videos from "../assets/videos.png";
 import welcome from "../assets/welcome.png";
-import generalMain1 from "../assets/market/generalMain1.png";
+import animals from "../assets/animals.jpg";
+import videos from "../assets/videos.png";
+import messaging1 from "../assets/messaging1.jpg";
 import sidebar1 from "../assets/market/sidebar1.jpg";
 import addBag1 from "../assets/market/addBag1.jpg";
 import payment2 from "../assets/market/payment2.jpg";
+import generalMain1 from "../assets/market/generalMain1.png";
 import { GoMarkGithub } from "react-icons/go";
 import { Modal, Button } from "react-bootstrap";
 import {
@@ -30,6 +30,9 @@ import { educational } from "../information";
 
 import useSound from "use-sound";
 import pageFlip from "../soundEffects/pageFlip.mp3";
+
+const tamzirtapozImages = [welcome, animals, videos, messaging1];
+const marketTamzirtapozImages = [sidebar1, addBag1, payment2, generalMain1];
 
 const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
@@ -128,59 +131,39 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                 <div className="d-flex justify-content-around m-1 p-1 flex-wrap">
                   {pageWidth > 726 ? (
                     <>
+                      {tamzirtapozImages.map((item, index) => {
+                        return (
+                          <div key={index} className="d-flex m-0 p-1">
+                            <img
+                              onClick={() => {
+                                setCurrentBigImage(item);
+                                setShowBiggerImageModal(true);
+                              }}
+                              className="img-fluid"
+                              src={item}
+                              alt="welcome"
+                              style={{ maxHeight: "200px" }}
+                            />
+                          </div>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <>
                       <div className="d-flex m-0 p-1">
                         <img
                           onClick={() => {
-                            setCurrentBigImage(welcome);
+                            setCurrentBigImage(tamzirtapozImages[3]);
                             setShowBiggerImageModal(true);
                           }}
                           className="img-fluid"
-                          src={welcome}
-                          alt="welcome"
-                          style={{ maxHeight: "200px" }}
-                        />
-                      </div>
-                      <div className="d-flex m-0 p-1">
-                        <img
-                          onClick={() => {
-                            setCurrentBigImage(animals);
-                            setShowBiggerImageModal(true);
-                          }}
-                          className="img-fluid"
-                          src={animals}
-                          alt="messaging"
-                          style={{ height: "200px" }}
-                        />
-                      </div>
-                      <div className="d-flex m-0 p-1">
-                        <img
-                          onClick={() => {
-                            setCurrentBigImage(videos);
-                            setShowBiggerImageModal(true);
-                          }}
-                          className="img-fluid"
-                          src={videos}
-                          alt="videos"
+                          src={tamzirtapozImages[3]}
+                          alt="animals"
                           style={{ height: "200px" }}
                         />
                       </div>
                     </>
-                  ) : (
-                    <></>
                   )}
-
-                  <div className="d-flex m-0 p-1">
-                    <img
-                      onClick={() => {
-                        setCurrentBigImage(messaging1);
-                        setShowBiggerImageModal(true);
-                      }}
-                      className="img-fluid"
-                      src={messaging1}
-                      alt="animals"
-                      style={{ height: "200px" }}
-                    />
-                  </div>
                 </div>
               </div>
               <p>{tamzirtapozParagraph2}</p>
@@ -258,59 +241,39 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                 <div className="d-flex justify-content-around m-1 p-1 flex-wrap">
                   {pageWidth > 726 ? (
                     <>
+                      {marketTamzirtapozImages.map((item, index) => {
+                        return (
+                          <div key={index} className="d-flex m-0 p-1">
+                            <img
+                              onClick={() => {
+                                setCurrentBigImage(item);
+                                setShowBiggerImageModal(true);
+                              }}
+                              className="img-fluid"
+                              src={item}
+                              alt="welcome"
+                              style={{ maxHeight: "200px" }}
+                            />
+                          </div>
+                        );
+                      })}
+                    </>
+                  ) : (
+                    <>
                       <div className="d-flex m-0 p-1">
                         <img
                           onClick={() => {
-                            setCurrentBigImage(sidebar1);
+                            setCurrentBigImage(marketTamzirtapozImages[1]);
                             setShowBiggerImageModal(true);
                           }}
                           className="img-fluid"
-                          src={sidebar1}
-                          alt="welcome"
-                          style={{ maxHeight: "200px" }}
-                        />
-                      </div>
-                      <div className="d-flex m-0 p-1">
-                        <img
-                          onClick={() => {
-                            setCurrentBigImage(addBag1);
-                            setShowBiggerImageModal(true);
-                          }}
-                          className="img-fluid"
-                          src={addBag1}
-                          alt="messaging"
-                          style={{ height: "200px" }}
-                        />
-                      </div>
-                      <div className="d-flex m-0 p-1">
-                        <img
-                          onClick={() => {
-                            setCurrentBigImage(payment2);
-                            setShowBiggerImageModal(true);
-                          }}
-                          className="img-fluid"
-                          src={payment2}
-                          alt="videos"
+                          src={marketTamzirtapozImages[1]}
+                          alt="animals"
                           style={{ height: "200px" }}
                         />
                       </div>
                     </>
-                  ) : (
-                    <></>
                   )}
-
-                  <div className="d-flex m-0 p-1">
-                    <img
-                      onClick={() => {
-                        setCurrentBigImage(generalMain1);
-                        setShowBiggerImageModal(true);
-                      }}
-                      className="img-fluid"
-                      src={generalMain1}
-                      alt="animals"
-                      style={{ height: "200px" }}
-                    />
-                  </div>
                 </div>
               </div>
               <p>{marketParagraph2}</p>

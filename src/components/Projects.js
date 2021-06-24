@@ -6,6 +6,8 @@ import messaging1 from "../assets/messaging1.jpg";
 import sidebar1 from "../assets/market/sidebar1.jpg";
 import addBag1 from "../assets/market/addBag1.jpg";
 import payment2 from "../assets/market/payment2.jpg";
+import bot1 from "../assets/bot1.png";
+
 import generalMain1 from "../assets/market/generalMain1.png";
 import { GoMarkGithub } from "react-icons/go";
 import { Modal, Button } from "react-bootstrap";
@@ -31,7 +33,7 @@ import { educational } from "../information";
 import useSound from "use-sound";
 import pageFlip from "../soundEffects/pageFlip.mp3";
 
-const tamzirtapozImages = [welcome, animals, videos, messaging1];
+const tamzirtapozImages = [welcome, bot1, animals, videos, messaging1];
 const marketTamzirtapozImages = [sidebar1, addBag1, payment2, generalMain1];
 
 const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {

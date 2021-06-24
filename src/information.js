@@ -8,10 +8,12 @@ import market1 from "./assets/market1.jpg";
 import market2 from "./assets/market2.jpg";
 import lottery1 from "./assets/lottery1.jpg";
 import lottery2 from "./assets/lottery2.jpg";
-import bag1 from "./assets//market/bag1.jpg";
-import addBag1 from "./assets//market/addBag1.jpg";
-import payment1 from "./assets//market/payment1.jpg";
-import oldPurchases1 from "./assets//market/oldPurchases1.jpg";
+import bot1 from "./assets//bot1.png";
+import bot2 from "./assets//bot2.jpg";
+import bag1 from "./assets/market/bag1.jpg";
+import addBag1 from "./assets/market/addBag1.jpg";
+import payment1 from "./assets/market/payment1.jpg";
+import oldPurchases1 from "./assets/market/oldPurchases1.jpg";
 import addProduct1 from "./assets/market/addProduct1.jpg";
 import addProduct2 from "./assets/market/addProduct2.jpg";
 import productPage1 from "./assets/market/productPage1.jpg";
@@ -42,6 +44,20 @@ export const tamzirtapozParagraph1 = `This is a social media web application tha
   People need to be a member to see the contents. This application makes connection to the Node.js server which is served by Heroku. There are 5 main page. Click details button for more information and to see photos`;
 
 export const tamzirtapozContent = [
+  {
+    title: "Smart AI Assistant",
+    paragraph1: "A smart bot tamzirtapoz will always help you about any topic",
+    photos: [bot1, bot2],
+    ulItems: [
+      "Easily send a message",
+      "Learn whatever you want",
+      "Talk like a person",
+      "For now, only English letters are supported",
+      "Get notifications from her",
+    ],
+    paragraph2:
+      "Even if you are not logged in, you can talk with her and get help from home page",
+  },
   {
     title: "Messaging",
     paragraph1:

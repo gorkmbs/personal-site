@@ -15,7 +15,8 @@ function App() {
   const [pageYPosition, setPageYPosition] = useState(0);
   const [navbarSpace, setNavbarSpace] = useState(0);
   // Heroku servers need a hello to start the server. Free plans automatically stop server after 30min no activity.
-  const [saidHelloBackend, setSaidHelloBackend] = useState(true);
+  // true for implementation, false for deploy
+  const [saidHelloBackend, setSaidHelloBackend] = useState(false);
 
   useEffect(() => {
     if (!saidHelloBackend) {

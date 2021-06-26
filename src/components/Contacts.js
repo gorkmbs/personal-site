@@ -160,11 +160,13 @@ const Contacts = ({ urlServer, pageYPosition, navbarSpace }) => {
         <div style={{ height: "50px" }}></div>
         <div className="d-flex m-2 p-2 justify-content-around flex-wrap align-items-center ">
           <div
-            className="m-4 p-2"
+            className="m-2 p-2"
             style={{
               background: "rgba(255,255,255,0.8)",
               border: "5px solid rgba(255,255,255,1)",
               borderRadius: "15px",
+              width: "250px",
+              height: "220px",
             }}
           >
             <h1 className="text-center">
@@ -182,69 +184,83 @@ const Contacts = ({ urlServer, pageYPosition, navbarSpace }) => {
               </a>
             </div>
             <p className="text-center m-1 p-0">or</p>
-            <a
-              href={urlServer + "/downloads/open-personal-cv"}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open on Browser
-            </a>
+            <div className="d-flex justify-content-center ">
+              <a
+                href={urlServer + "/downloads/open-personal-cv"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open on Browser
+              </a>
+            </div>
           </div>
           <div
-            className="m-4 p-2"
+            className="m-2 p-2"
             style={{
               background: "rgba(255,255,255,0.8)",
               border: "5px solid rgba(255,255,255,1)",
               borderRadius: "15px",
+              width: "250px",
+              height: "220px",
             }}
           >
+            <div style={{ height: "25px" }}></div>
             <h1 className="text-center">
               <GoMarkGithub />
             </h1>
             <h3 className="text-center">GitHub</h3>
-            <a
-              href="https://github.com/tamzirtapoz"
-              target="_blank"
-              rel="noreferrer"
-              className="linkWithoutBlueLine m-0 p-0"
-            >
-              Visit GitHub Profile
-            </a>
+            <div className="d-flex justify-content-center ">
+              <a
+                href="https://github.com/tamzirtapoz"
+                target="_blank"
+                rel="noreferrer"
+                className="linkWithoutBlueLine m-0 p-0"
+              >
+                Visit GitHub Profile
+              </a>
+            </div>
           </div>
           <div
-            className="m-4 p-2"
+            className="m-2 p-2"
             style={{
               background: "rgba(255,255,255,0.8)",
               border: "5px solid rgba(255,255,255,1)",
               borderRadius: "15px",
+              width: "250px",
+              height: "220px",
             }}
           >
+            <div style={{ height: "25px" }}></div>
             <h1 className="text-center">
               <SiLinkedin />
             </h1>
             <h3 className="text-center">LinkedIn</h3>
-            <a
-              href="https://www.linkedin.com/in/g%C3%B6rkem-bu%C4%9Fra-sara%C3%A7-3458b0149/"
-              target="_blank"
-              rel="noreferrer"
-              className="linkWithoutBlueLine m-0 p-0"
-            >
-              Visit LinkedIn Profile
-            </a>
+            <div className="d-flex justify-content-center ">
+              <a
+                href="https://www.linkedin.com/in/g%C3%B6rkem-bu%C4%9Fra-sara%C3%A7-3458b0149/"
+                target="_blank"
+                rel="noreferrer"
+                className="linkWithoutBlueLine m-0 p-0"
+              >
+                Visit LinkedIn Profile
+              </a>
+            </div>
           </div>
           <div
-            className="m-4 p-2"
+            className="m-2 p-2"
             style={{
               background: "rgba(255,255,255,0.8)",
               border: "5px solid rgba(255,255,255,1)",
               borderRadius: "15px",
+              width: "250px",
+              height: "220px",
             }}
           >
             <h1 className="text-center">
               <FiMail />
             </h1>
             <h3 className="text-center">E-Mail</h3>
-            <p>gorkembsarac@gmail.com</p>
+            <p className="text-center">gorkembsarac@gmail.com</p>
             <div className="d-flex justify-content-center">
               <button
                 className="btn btn-primary"

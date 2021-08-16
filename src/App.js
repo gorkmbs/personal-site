@@ -12,7 +12,7 @@ const urlServer = "https://tamzirtapoz.herokuapp.com";
 function App() {
   const [pageWidth, setPageWidth] = useState(800);
   const [pageYPosition, setPageYPosition] = useState(0);
-  const [navbarSpace, setNavbarSpace] = useState(0);
+  const [openMenu, setOpenMenu] = useState(false);
   // Heroku servers need a hello to start the server. Free plans automatically stop server after 30min no activity.
   // true for implementation, false for deploy
   const [saidHelloBackend, setSaidHelloBackend] = useState(true);
@@ -36,7 +36,6 @@ function App() {
   const scrolledPage = () => {
     setPageWidth(window.innerWidth);
     setPageYPosition(window.pageYOffset);
-    setNavbarSpace(window.innerWidth < 576 ? 74 : 48);
   };
 
   useEffect(() => {
@@ -52,24 +51,21 @@ function App() {
 
   return (
     <>
-      <NavbarSide navbarSpace={navbarSpace} />
+      <NavbarSide openMenu={openMenu} setOpenMenu={setOpenMenu} />
       <About
         pageWidth={pageWidth}
         urlServer={urlServer}
         pageYPosition={pageYPosition}
-        navbarSpace={navbarSpace}
       />
       <Projects
         pageWidth={pageWidth}
         urlServer={urlServer}
         pageYPosition={pageYPosition}
-        navbarSpace={navbarSpace}
       />
       <Contacts
         urlServer={urlServer}
         pageWidth={pageWidth}
         pageYPosition={pageYPosition}
-        navbarSpace={navbarSpace}
       />
     </>
   );

@@ -29,7 +29,7 @@ const NavbarSide = ({ navbarSpace }) => {
           className="container-fluid m-0 p-0 align-items-center navConfigure"
           style={{ width: "100%", height: navbarSpace }}
         >
-          <div className="d-flex p-0 m-0 justify-content-around flex-wrap align-items-center">
+          <div className="flex p-0 m-0 justify-content-around flex-wrap align-items-center">
             <h4 className="navTextColorBrand m-1 rounded text-center m-0 p-0">
               Görkem B. Saraç{" "}
               <span>

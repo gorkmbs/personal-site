@@ -1,6 +1,5 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import NavbarSide from "./components/NavbarSide";
 import About from "./components/About";
 import Projects from "./components/Projects";
@@ -16,7 +15,7 @@ function App() {
   const [navbarSpace, setNavbarSpace] = useState(0);
   // Heroku servers need a hello to start the server. Free plans automatically stop server after 30min no activity.
   // true for implementation, false for deploy
-  const [saidHelloBackend, setSaidHelloBackend] = useState(false);
+  const [saidHelloBackend, setSaidHelloBackend] = useState(true);
 
   useEffect(() => {
     if (!saidHelloBackend) {

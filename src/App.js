@@ -12,7 +12,7 @@ const urlServer = "https://tamzirtapoz.herokuapp.com";
 function App() {
   const [pageWidth, setPageWidth] = useState(800);
   const [pageYPosition, setPageYPosition] = useState(0);
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(true);
   // Heroku servers need a hello to start the server. Free plans automatically stop server after 30min no activity.
   // true for implementation, false for deploy
   const [saidHelloBackend, setSaidHelloBackend] = useState(true);

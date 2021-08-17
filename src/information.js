@@ -24,7 +24,7 @@ import generalMain1 from "./assets/market/generalMain1.png";
  *** General info about Görkem Buğra Saraç
  */
 
-export const generalInfo = `I am a full-stack web developer. I love coding, because that's where I'm able to try out and learn
+export const generalInfo = `I am a full-stack web developer. I love coding, because that's where I'm always able to try out and learn
           something new. The fact that I'm able to apply my knowledge in
           practice and create products brings both joy and pride to me. I like
           to learn new things, because I prefer to learn the way they are
@@ -34,7 +34,7 @@ export const generalInfo = `I am a full-stack web developer. I love coding, beca
           accordance with the " Clean Code '' principle. While I've been
           learning new things, I also found out that there is a limitless ocean
           of knowledge. But thanks to my interest to learn, apply and create new
-          things, I really want to swim in this ocean.`;
+          things, I really like to swim in this ocean.`;
 
 /*
  ***** Tamzirtapoz Part

@@ -29,7 +29,9 @@ html {
 }
 
 .aboutPageGeneral {
-  background: linear-gradient(90deg, rgb(206, 255, 244), rgb(206, 135, 42));
+  /* background: linear-gradient(90deg, rgb(206, 255, 244), rgb(206, 135, 42)); */
+  background-size: cover;
+  background-position: center;
 }
 
 .projectsPageGeneral {

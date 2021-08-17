@@ -4,7 +4,7 @@ import React from "react";
 // import { ChevronDownIcon } from "@heroicons/react/solid";
 import { FiMenu } from "react-icons/fi";
 
-const NavbarSide = () => {
+const NavbarSide = ({ setOpenMenu, openMenu }) => {
   return (
     <>
       <nav
@@ -21,11 +21,21 @@ const NavbarSide = () => {
         }}
       >
         <div className="flex justify-between items-center w-full h-full px-4 text-blue-100">
-          <div className="p-1">
-            <h1 className="text-red-500">Portfolio</h1>
+          <div className="flex">
+            <div className="p-1">
+              <h1 className="text-red-500">Portfolio / </h1>
+            </div>
+            <div className="p-1">
+              <h1 className="text-gray-100 font-mono">Görkem Buğra Saraç</h1>
+            </div>
           </div>
 
-          <div className="mx-8 md:hidden block">
+          <div
+            className="mx-8 md:hidden block cursor-pointer"
+            onClick={() => {
+              setOpenMenu(!openMenu);
+            }}
+          >
             <FiMenu />
           </div>
           <div className="hidden md:flex md:justify-center md:items-center md:h-full">
@@ -75,21 +85,28 @@ const NavbarSide = () => {
         </div>
       </nav>
       <div
-        className="flex w-full justify-end md:hidden p-0 fixed"
-        style={{
-          zIndex: 10,
-        }}
+        className="flex w-full justify-end md:hidden p-0 fixed h-screen"
+        style={{}}
       >
         <div
-          className="flex-col md:hidden mt-16 p-0 absolute bg-gray-900 text-gray-100"
+          className={`flex flex-col justify-around items-center md:hidden mt-16 p-8 absolute bg-gray-900 text-gray-100 h-2/3 rounded-bl-3xl`}
           style={{
             borderLeft: "2px",
             borderBottom: "2px",
             borderStyle: "solid",
             borderColor: "#ef4444",
+            zIndex: 10,
           }}
         >
-          AAAAAAAAA
+          <div className="mx-8">
+            <h4>About</h4>
+          </div>
+          <div className="mx-8">
+            <h4>Projects</h4>
+          </div>
+          <div className="mx-8">
+            <h4>Contacts</h4>
+          </div>
         </div>
       </div>
     </>

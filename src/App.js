@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import NavbarSide from "./components/NavbarSide";
 import About from "./components/About";
 import Projects from "./components/Projects";
@@ -16,22 +16,25 @@ function App() {
   const [classForMenuToggle, setClassForMenuToggle] = useState(
     "initialize-navbar-toggle"
   );
+  const data = useRef(null);
+  data.current = classForMenuToggle;
   // Heroku servers need a hello to start the server. Free plans automatically stop server after 30min no activity.
   // true for implementation, false for deploy
   const [saidHelloBackend, setSaidHelloBackend] = useState(true);
 
   const hideNavbar = () => {
-    if (classForMenuToggle === "hide-navbar-toggle") {
-      setClassForMenuToggle("hide-navbar-toggle hidden-navbar-toggle");
-    }
+    setTimeout(() => {
+      if (data.current === "hide-navbar-toggle") {
+        setClassForMenuToggle("hide-navbar-toggle hidden-navbar-toggle");
+      }
+    }, 950);
   };
 
   const toggleNavbar = () => {
     if (classForMenuToggle === "show-navbar-toggle") {
       setClassForMenuToggle("hide-navbar-toggle");
-      setTimeout(() => {
-        hideNavbar();
-      }, 950);
+
+      hideNavbar();
     } else {
       setClassForMenuToggle("show-navbar-toggle");
     }

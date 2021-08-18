@@ -54,7 +54,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
       <div
         id="projectsPage"
         className="container-fluid m-0 p-0 projectsPageGeneral"
-        style={{ minHeight: "350px", zIndex: 6 }}
+        style={{ minHeight: "350px" }}
       >
         <h1
           className="text-center shadow"

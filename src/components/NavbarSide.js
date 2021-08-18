@@ -2,7 +2,7 @@ import React from "react";
 // import { Fragment } from "react";
 // import { Menu, Transition } from "@headlessui/react";
 // import { ChevronDownIcon } from "@heroicons/react/solid";
-import { FiMenu } from "react-icons/fi";
+// import { FiMenu } from "react-icons/fi";
 
 const NavbarSide = ({
   setClassForMenuToggle,
@@ -17,7 +17,7 @@ const NavbarSide = ({
           position: "fixed",
           top: 0,
           left: 0,
-          zIndex: 10,
+          zIndex: 60,
           width: "100vw",
           borderBottom: "2px",
           borderStyle: "solid",
@@ -35,12 +35,32 @@ const NavbarSide = ({
           </div>
 
           <div
-            className="mx-8 md:hidden block cursor-pointer"
+            className="flex flex-col justify-center items-center w-10 h-10 mx-8 md:hidden block cursor-pointer border border-1 border-gray-400 p-2"
             onClick={() => {
               toggleNavbar();
             }}
           >
-            <FiMenu />
+            <div
+              className={`menu-line ${
+                classForMenuToggle === "show-navbar-toggle"
+                  ? "show-menu-line-1"
+                  : "menu-line-1"
+              }`}
+            ></div>
+            <div
+              className={`menu-line ${
+                classForMenuToggle === "show-navbar-toggle"
+                  ? "show-menu-line-2"
+                  : "menu-line-2"
+              }`}
+            ></div>
+            <div
+              className={`menu-line ${
+                classForMenuToggle === "show-navbar-toggle"
+                  ? "show-menu-line-3"
+                  : "menu-line-3"
+              }`}
+            ></div>
           </div>
           <div className="hidden md:flex md:justify-center md:items-center md:h-full">
             <div className="mx-8">
@@ -89,8 +109,15 @@ const NavbarSide = ({
         </div>
       </nav>
       <div
-        className="flex w-full justify-end md:hidden p-0 fixed h-screen"
-        style={{}}
+        className={`flex w-full justify-end ${
+          classForMenuToggle === "hide-navbar-toggle hidden-navbar-toggle"
+            ? "hidden"
+            : ""
+        } md:hidden p-0 fixed h-screen`}
+        style={{
+          zIndex: 50,
+          background: "rgba(0, 0, 0, 0.1)",
+        }}
       >
         <div
           className={`flex flex-col justify-around items-center md:hidden ${classForMenuToggle} mt-16 p-8 absolute bg-gray-900 text-gray-100 h-2/3 rounded-bl-3xl`}
@@ -99,7 +126,7 @@ const NavbarSide = ({
             borderBottom: "2px",
             borderStyle: "solid",
             borderColor: "#ef4444",
-            zIndex: 10,
+            zIndex: 50,
           }}
         >
           <div

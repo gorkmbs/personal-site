@@ -96,7 +96,6 @@ html {
 .initialize-navbar-toggle {
   display: none;
 }
-
 .show-navbar-toggle {
   animation: show-navbar-toggle-k 0.5s linear 0s 1;
 }
@@ -164,4 +163,58 @@ html {
     transform: translate(+100%, -20%);
     display: none;
   }
+}
+
+.contant-me-button {
+  transition: all ease 1s;
+  /* box-shadow: 0px 0px 0px rgba(20, 255, 25, 0); */
+}
+.contant-me-button:hover {
+  transition: all ease 0.5s;
+  box-shadow: 0px 10px 10px rgba(20, 255, 25, 0.3);
+}
+.menu-line {
+  transition: all ease 1s;
+}
+.menu-line-1 {
+  width: 20px;
+  height: 2px;
+  background: rgba(158, 158, 158, 0.877);
+  margin: 2px;
+}
+.menu-line-2 {
+  width: 20px;
+  height: 2px;
+  background: rgba(158, 158, 158, 0.877);
+  margin: 2px;
+}
+.menu-line-3 {
+  width: 20px;
+  height: 2px;
+  background: rgba(158, 158, 158, 0.877);
+  margin: 2px;
+}
+
+.show-menu-line-1 {
+  width: 20px;
+  height: 2px;
+  background: rgba(248, 69, 69, 0.877);
+  transform: rotate(45deg);
+  position: absolute;
+  margin: 2px;
+}
+.show-menu-line-2 {
+  width: 0px;
+  height: 2px;
+  background: rgba(248, 69, 69, 0.877);
+  position: absolute;
+  margin: 2px;
+}
+.show-menu-line-3 {
+  width: 20px;
+  height: 2px;
+  background: rgba(248, 69, 69, 0.877);
+  transform: rotate(-45deg);
+  position: absolute;
+  margin: 2px;
 }

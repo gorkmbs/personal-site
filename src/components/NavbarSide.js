@@ -3,25 +3,48 @@ import React from "react";
 // import { Menu, Transition } from "@headlessui/react";
 // import { ChevronDownIcon } from "@heroicons/react/solid";
 // import { FiMenu } from "react-icons/fi";
+import { FaLinkedin } from "react-icons/fa";
+import { VscGithubInverted } from "react-icons/vsc";
 
 const NavbarSide = ({
   setClassForMenuToggle,
   classForMenuToggle,
   toggleNavbar,
+  pageYPosition,
 }) => {
   return (
     <>
+      <div className="flex h-20 items-center px-8 absolute">
+        <div className="ml-4 pr-4 border-r border-r-2 border-gray-100">
+          <FaLinkedin className="text-gray-200 text-2xl opacity-80 " />
+        </div>
+        <div className="ml-4 pr-4 border-r border-r-2 border-gray-100">
+          <VscGithubInverted className="text-gray-200 text-2xl opacity-80 " />
+        </div>
+        <div className="ml-4 pr-4 border-r border-r-2 border-gray-100">
+          <VscGithubInverted className="text-gray-200 text-2xl opacity-80 " />
+        </div>
+        <div className="ml-4 pr-4 ">
+          <VscGithubInverted className="text-gray-200 text-2xl opacity-80" />
+        </div>
+      </div>
       <nav
-        className="bg-gray-900 md:h-20 h-16"
+        className={`${pageYPosition > 60 ? "bg-gray-900" : ""} md:h-20 h-16`}
         style={{
           position: "fixed",
-          top: 0,
+          top: pageYPosition > 60 ? 0 : 60,
           left: 0,
           zIndex: 60,
           width: "100vw",
           borderBottom: "2px",
           borderStyle: "solid",
-          borderColor: "#ef4444",
+          borderColor:
+            pageYPosition > 60
+              ? "#ef4444"
+              : classForMenuToggle === "show-navbar-toggle"
+              ? "#ef4444"
+              : "rgba(0,0,0,0)",
+          transition: "all ease 1s",
         }}
       >
         <div className="flex justify-between items-center w-full h-full px-4 text-blue-100">
@@ -35,7 +58,7 @@ const NavbarSide = ({
           </div>
 
           <div
-            className="flex flex-col justify-center items-center w-10 h-10 mx-8 md:hidden block cursor-pointer border border-1 border-gray-400 p-2"
+            className="flex flex-col justify-center items-center w-10 h-10 mr-4 md:hidden block cursor-pointer border border-1 border-gray-600 p-2"
             onClick={() => {
               toggleNavbar();
             }}
@@ -116,7 +139,9 @@ const NavbarSide = ({
         } md:hidden p-0 fixed h-screen`}
         style={{
           zIndex: 50,
+          top: pageYPosition > 60 ? 0 : 60,
           background: "rgba(0, 0, 0, 0.1)",
+          transition: "all ease 1s",
         }}
       >
         <div

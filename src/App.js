@@ -5,6 +5,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Contacts from "./components/Contacts";
 import nightSky from "./assets/nightSky.jpg";
+
 const axios = require("axios");
 
 // const urlServer = "http://localhost:5000";
@@ -21,6 +22,12 @@ function App() {
   // Heroku servers need a hello to start the server. Free plans automatically stop server after 30min no activity.
   // true for implementation, false for deploy
   const [saidHelloBackend, setSaidHelloBackend] = useState(true);
+
+  useEffect(() => {
+    if (pageWidth >= 768) {
+      setClassForMenuToggle("hide-navbar-toggle hidden-navbar-toggle");
+    }
+  }, [pageWidth]);
 
   const hideNavbar = () => {
     setTimeout(() => {
@@ -83,10 +90,12 @@ function App() {
           zIndex: "-1",
         }}
       ></div>
+
       <NavbarSide
         classForMenuToggle={classForMenuToggle}
         setClassForMenuToggle={setClassForMenuToggle}
         toggleNavbar={toggleNavbar}
+        pageYPosition={pageYPosition}
       />
       <About
         pageWidth={pageWidth}

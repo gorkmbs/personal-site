@@ -100,8 +100,32 @@ const About = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
           </div>
           <div className="md:hidden md:w-1/2 md:flex md:items-center p-4">
             <div>
-              <p className="text-gray-100 text-justify bg-gray-900 bg-opacity-40">
-                {generalInfo}
+              <h2 className="text-red-600 text-3xl text-center mt-4">
+                Görkem Buğra Saraç
+              </h2>
+              <h4 className="text-gray-100 text-lg font-mono text-center mt-4">
+                Full-Stack Web Deweloper
+              </h4>
+              <p className="text-gray-100 text-justify bg-gray-900 bg-opacity-40 mt-8">
+                <IconContext.Provider
+                  value={{
+                    color: "rgba(50, 50, 255, 1)",
+                    className: "global-class-name inline",
+                    size: "20px",
+                  }}
+                >
+                  <ImQuotesLeft />
+                </IconContext.Provider>{" "}
+                {generalInfo}{" "}
+                <IconContext.Provider
+                  value={{
+                    color: "rgba(50, 50, 255, 1)",
+                    className: "global-class-name inline",
+                    size: "20px",
+                  }}
+                >
+                  <ImQuotesRight />
+                </IconContext.Provider>
               </p>
               <div className="flex flex-wrap justify-center items-center my-16">
                 <div

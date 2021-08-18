@@ -51,25 +51,21 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
 
   return (
     <>
+      <div className="bg-red-600" style={{ height: "1px" }}></div>
       <div
         id="projectsPage"
-        className="container-fluid m-0 p-0 projectsPageGeneral"
-        style={{ minHeight: "350px", zIndex: 6 }}
+        className="flex flex-col m-0 p-0 bg-gray-900 opacity-100 justify-center items-center"
+        style={{ minHeight: "350px", zIndex: 6, width: "100%" }}
       >
-        <h1
-          className="text-center shadow"
+        <div
+          className="flex justify-center w-full h-16 md:h-20 items-center text-gray-100 text-3xl bg-gray-900"
           style={{
-            background:
-              pageYPosition >
-              document.getElementById("projectsPage")?.offsetTop - navbarSpace
-                ? "rgb(255, 168, 168)"
-                : "rgba(255,255,255,0.2)",
             position: "sticky",
-            top: navbarSpace,
+            top: pageWidth >= 768 ? "80px" : "64px",
           }}
         >
-          Projects and Education
-        </h1>
+          <h1>Projects and Education</h1>
+        </div>
 
         {/* main tamzirtapoz */}
 
@@ -77,11 +73,11 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
           className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
           style={{ background: "rgba(0,0,0,0.0)" }}
         >
-          <div className="d-flex m-0 p-0 justify-content-center flex-wrap align-items-center">
+          <div className="flex m-0 p-0 justify-center flex-wrap items-center">
             <div
-              className="container-fluid m-0 p-4"
+              className="m-0 p-4 bg-gray-800"
               style={{
-                background: "rgba(255,255,255,0.7)",
+                // background: "rgba(255,255,255,0.7)",
                 border: "3px",
                 borderStyle: "hidden",
                 borderColor: "rgba(0,0,0,0)",
@@ -89,7 +85,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
               }}
             >
               <h4
-                className="text-center"
+                className="text-center text-red-400 text-xl my-8"
                 style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
               >
                 Project Tamzirtapoz {`(React.js Part)`}
@@ -98,19 +94,20 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                 href="https://tamzirtapoz.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-blue-400 "
               >
                 See the tamzirtapoz web application while working
               </a>
-              <p className="text-dark">{tamzirtapozParagraph1}</p>
+              <p className="text-gray-100 mt-4">{tamzirtapozParagraph1}</p>
               <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
                 <div className="container-fluid m-0 p-0">
-                  <ol>
+                  <ol className="list-decimal text-gray-100 m-4">
                     {tamzirtapozContent.map((item, index) => {
                       return (
                         <li key={index}>
                           {item.title}{" "}
                           <button
-                            className="text-primary"
+                            className="text-blue-400"
                             style={{
                               border: "0px",
                               borderStyle: "solid",
@@ -130,12 +127,12 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                     })}
                   </ol>
                 </div>
-                <div className="d-flex justify-content-around m-1 p-1 flex-wrap">
+                <div className="flex justify-around m-1 p-1 flex-wrap">
                   {pageWidth > 726 ? (
                     <>
                       {tamzirtapozImages.map((item, index) => {
                         return (
-                          <div key={index} className="d-flex m-0 p-1">
+                          <div key={index} className="flex m-0 p-1">
                             <img
                               onClick={() => {
                                 setCurrentBigImage(item);
@@ -152,7 +149,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                     </>
                   ) : (
                     <>
-                      <div className="d-flex m-0 p-1">
+                      <div className="flex m-0 p-1">
                         <img
                           onClick={() => {
                             setCurrentBigImage(tamzirtapozImages[3]);

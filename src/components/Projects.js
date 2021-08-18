@@ -51,7 +51,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
 
   return (
     <>
-      <div className="bg-red-600" style={{ height: "1px" }}></div>
+      <div className="bg-red-600" style={{ height: "2px" }}></div>
       <div
         id="projectsPage"
         className="flex flex-col m-0 p-0 bg-gray-900 opacity-100 justify-center items-center"

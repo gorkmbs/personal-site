@@ -4,7 +4,11 @@ import React from "react";
 // import { ChevronDownIcon } from "@heroicons/react/solid";
 import { FiMenu } from "react-icons/fi";
 
-const NavbarSide = ({ setOpenMenu, openMenu }) => {
+const NavbarSide = ({
+  setClassForMenuToggle,
+  classForMenuToggle,
+  toggleNavbar,
+}) => {
   return (
     <>
       <nav
@@ -33,7 +37,7 @@ const NavbarSide = ({ setOpenMenu, openMenu }) => {
           <div
             className="mx-8 md:hidden block cursor-pointer"
             onClick={() => {
-              setOpenMenu(!openMenu);
+              toggleNavbar();
             }}
           >
             <FiMenu />
@@ -89,7 +93,7 @@ const NavbarSide = ({ setOpenMenu, openMenu }) => {
         style={{}}
       >
         <div
-          className={`flex flex-col justify-around items-center md:hidden mt-16 p-8 absolute bg-gray-900 text-gray-100 h-2/3 rounded-bl-3xl`}
+          className={`flex flex-col justify-around items-center md:hidden ${classForMenuToggle} mt-16 p-8 absolute bg-gray-900 text-gray-100 h-2/3 rounded-bl-3xl`}
           style={{
             borderLeft: "2px",
             borderBottom: "2px",
@@ -98,13 +102,25 @@ const NavbarSide = ({ setOpenMenu, openMenu }) => {
             zIndex: 10,
           }}
         >
-          <div className="mx-8">
+          <div
+            className={`mx-8 ${
+              classForMenuToggle === "show-navbar-toggle" ? "toggle-item-1" : ""
+            }`}
+          >
             <h4>About</h4>
           </div>
-          <div className="mx-8">
+          <div
+            className={`mx-8 ${
+              classForMenuToggle === "show-navbar-toggle" ? "toggle-item-2" : ""
+            }`}
+          >
             <h4>Projects</h4>
           </div>
-          <div className="mx-8">
+          <div
+            className={`mx-8 ${
+              classForMenuToggle === "show-navbar-toggle" ? "toggle-item-3" : ""
+            }`}
+          >
             <h4>Contacts</h4>
           </div>
         </div>

@@ -92,3 +92,76 @@ html {
     transform: rotate(720deg);
   }
 }
+
+.initialize-navbar-toggle {
+  display: none;
+}
+
+.show-navbar-toggle {
+  animation: show-navbar-toggle-k 0.5s linear 0s 1;
+}
+
+@keyframes show-navbar-toggle-k {
+  0% {
+    transform: translate(+100%, -50%) scale(0.9) rotate3d(1, 0.3, 0, -90deg);
+    opacity: 0.3;
+  }
+  20% {
+    transform: translate(+50%, -40%) scale(0.9) rotate3d(1, 0.3, 0, -60deg);
+    opacity: 0.5;
+  }
+  70% {
+    transform: translate(+20%, -10%) scale(1) rotate3d(1, 0.3, 0, -30deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0%, 0%) scale(1) rotate3d(0);
+    opacity: 1;
+  }
+}
+.toggle-item-1 {
+  animation: toggle-item-k 1.25s ease 0s 1;
+}
+.toggle-item-2 {
+  animation: toggle-item-k 1.5s ease 0s 1;
+}
+.toggle-item-3 {
+  animation: toggle-item-k 1.75s ease 0s 1;
+}
+@keyframes toggle-item-k {
+  0% {
+    transform: translate(+100%, -20%) scale(0.5);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(+100%, -20%) scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 1;
+  }
+}
+
+.hidden-navbar-toggle {
+  display: none;
+}
+
+.hide-navbar-toggle {
+  transform: translate(+100%, -20%);
+  animation: hide-navbar-toggle-k 1s ease 0s 1;
+}
+@keyframes hide-navbar-toggle-k {
+  0% {
+    transform: translate(0%, 0%);
+    display: block;
+  }
+  99% {
+    transform: translate(+99%, -20%);
+    display: block;
+  }
+  100% {
+    transform: translate(+100%, -20%);
+    display: none;
+  }
+}

@@ -167,8 +167,8 @@ const About = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
         </div>
       </div>
       <p className="text-center text-gray-100 mx-8 cursor-default">
-        #React.js #Vue.js #React-Native #Node.js #Express.js #CSS #SCSS #SASS
-        #MongoDB #Bootstrap #Tailwind #JWT-Authentication #Axios #Joi
+        #React.js #Redux #Vue.js #React-Native #Node.js #Express.js #CSS #SCSS
+        #SASS #MongoDB #Bootstrap #Tailwind #JWT-Authentication #Axios #Joi
       </p>
       <div style={{ height: "30px" }}></div>
     </div>

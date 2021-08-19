@@ -50,7 +50,7 @@ const NavbarSide = ({
         <div className="flex justify-between items-center w-full h-full px-4 text-blue-100">
           <div className="flex">
             <div className="p-1">
-              <h1 className="text-red-500">Portfolio / </h1>
+              <h1 className="text-red-500 cursor-default">Portfolio / </h1>
             </div>
             <div className="p-1">
               <h1 className="text-gray-100 font-mono">Görkem Buğra Saraç</h1>

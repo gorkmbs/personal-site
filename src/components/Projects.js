@@ -64,18 +64,18 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
             top: pageWidth >= 768 ? "80px" : "64px",
           }}
         >
-          <h1>Projects and Education</h1>
+          <h1 className="cursor-default">Projects and Education</h1>
         </div>
 
         {/* main tamzirtapoz */}
 
         <div
-          className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
+          className="flex m-4 p-2 justify-center flex-wrap items-center"
           style={{ background: "rgba(0,0,0,0.0)" }}
         >
           <div className="flex m-0 p-0 justify-center flex-wrap items-center">
             <div
-              className="m-0 p-4 bg-gray-800"
+              className="m-0 p-4 bg-gray-800 w-full"
               style={{
                 // background: "rgba(255,255,255,0.7)",
                 border: "3px",
@@ -85,10 +85,10 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
               }}
             >
               <h4
-                className="text-center text-red-400 text-xl my-8"
+                className="text-center text-red-400 text-xl my-8 cursor-default"
                 style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
               >
-                Project Tamzirtapoz {`(React.js Part)`}
+                Project Tamzirtapoz {`(React.js)`}
               </h4>
               <a
                 href="https://tamzirtapoz.netlify.app/"
@@ -98,16 +98,18 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
               >
                 See the tamzirtapoz web application while working
               </a>
-              <p className="text-gray-100 mt-4">{tamzirtapozParagraph1}</p>
-              <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
-                <div className="container-fluid m-0 p-0">
+              <div className="flex m-0 p-0 justify-around flex-wrap w-full">
+                <div className="flex flex-col justify-center m-0 p-0 lg:w-1/2">
+                  <p className="text-gray-100 mt-4 text-justify">
+                    {tamzirtapozParagraph1}
+                  </p>
                   <ol className="list-decimal text-gray-100 m-4">
                     {tamzirtapozContent.map((item, index) => {
                       return (
                         <li key={index}>
                           {item.title}{" "}
                           <button
-                            className="text-blue-400"
+                            className="text-red-500"
                             style={{
                               border: "0px",
                               borderStyle: "solid",
@@ -127,7 +129,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                     })}
                   </ol>
                 </div>
-                <div className="flex justify-around m-1 p-1 flex-wrap">
+                <div className="flex justify-around m-0 p-1 flex-wrap lg:w-1/2">
                   {pageWidth > 726 ? (
                     <>
                       {tamzirtapozImages.map((item, index) => {
@@ -138,7 +140,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                                 setCurrentBigImage(item);
                                 setShowBiggerImageModal(true);
                               }}
-                              className="img-fluid"
+                              className="m-4 cursor-pointer"
                               src={item}
                               alt="welcome"
                               style={{ maxHeight: "200px" }}
@@ -165,14 +167,18 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                   )}
                 </div>
               </div>
-              <p>{tamzirtapozParagraph2}</p>
+              <p className="text-gray-100 my-4">{tamzirtapozParagraph2}</p>
               <a
                 href="https://github.com/tamzirtapoz/tamzirtapoz-Main-Frontend-React"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-blue-400"
               >
                 Source Code on GitHub{" "}
-                <GoMarkGithub style={{ fontSize: "20px" }} />
+                <GoMarkGithub
+                  style={{ fontSize: "20px" }}
+                  className="inline-block"
+                />
               </a>
             </div>
           </div>
@@ -181,14 +187,14 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
         {/* market tamzirtapoz */}
 
         <div
-          className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
+          className="flex m-4 p-2 justify-center flex-wrap items-center"
           style={{ background: "rgba(0,0,0,0.0)" }}
         >
-          <div className="d-flex m-0 p-0 justify-content-center flex-wrap align-items-center">
+          <div className="flex m-0 p-0 justify-center flex-wrap items-center">
             <div
-              className="container-fluid m-0 p-4"
+              className="m-0 p-4 bg-gray-800 w-full"
               style={{
-                background: "rgba(255,255,255,0.7)",
+                // background: "rgba(255,255,255,0.7)",
                 border: "3px",
                 borderStyle: "hidden",
                 borderColor: "rgba(0,0,0,0)",
@@ -196,28 +202,31 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
               }}
             >
               <h4
-                className="text-center"
+                className="text-center text-red-400 text-xl my-8 cursor-default"
                 style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
               >
-                Project Market {`(React.js Part)`}
+                Project Market {`(React.js)`}
               </h4>
               <a
+                className="text-blue-400 "
                 href="https://market-tamzirtapoz.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 See the market web application in action
               </a>
-              <p className="text-dark">{marketParagraph1}</p>
-              <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
-                <div className="container-fluid m-0 p-0">
-                  <ol>
+              <div className="flex m-0 p-0 justify-around flex-wrap w-full">
+                <div className="flex flex-col justify-center m-0 p-0 lg:w-1/2">
+                  <p className="text-gray-100 mt-4 text-justify">
+                    {marketParagraph1}
+                  </p>
+                  <ol className="list-decimal text-gray-100 m-4">
                     {marketContent.map((item, index) => {
                       return (
                         <li key={index}>
                           {item.title}{" "}
                           <button
-                            className="text-primary"
+                            className="text-red-500"
                             style={{
                               border: "0px",
                               borderStyle: "solid",
@@ -237,18 +246,18 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                     })}
                   </ol>
                 </div>
-                <div className="d-flex justify-content-around m-1 p-1 flex-wrap">
+                <div className="flex justify-around m-0 p-1 flex-wrap lg:w-1/2">
                   {pageWidth > 726 ? (
                     <>
                       {marketTamzirtapozImages.map((item, index) => {
                         return (
-                          <div key={index} className="d-flex m-0 p-1">
+                          <div key={index} className="flex m-0 p-1">
                             <img
                               onClick={() => {
                                 setCurrentBigImage(item);
                                 setShowBiggerImageModal(true);
                               }}
-                              className="img-fluid"
+                              className="m-4 cursor-pointer"
                               src={item}
                               alt="welcome"
                               style={{ maxHeight: "200px" }}
@@ -259,13 +268,13 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                     </>
                   ) : (
                     <>
-                      <div className="d-flex m-0 p-1">
+                      <div className="flex m-0 p-1">
                         <img
                           onClick={() => {
                             setCurrentBigImage(marketTamzirtapozImages[1]);
                             setShowBiggerImageModal(true);
                           }}
-                          className="img-fluid"
+                          className="m-4 cursor-pointer"
                           src={marketTamzirtapozImages[1]}
                           alt="animals"
                           style={{ height: "200px" }}
@@ -275,14 +284,18 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                   )}
                 </div>
               </div>
-              <p>{marketParagraph2}</p>
+              <p className="text-gray-100 my-4">{marketParagraph2}</p>
               <a
                 href="https://github.com/tamzirtapoz/tamzirtapoz-marketPlace-Frontend-React-Redux"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-blue-400"
               >
                 Source Code on GitHub{" "}
-                <GoMarkGithub style={{ fontSize: "20px" }} />
+                <GoMarkGithub
+                  style={{ fontSize: "20px" }}
+                  className="inline-block"
+                />
               </a>
             </div>
           </div>
@@ -291,14 +304,14 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
         {/* tamzirtapoz node.js api */}
 
         <div
-          className="d-flex m-4 p-2 justify-content-center flex-wrap align-items-center"
+          className="flex m-4 p-2 justify-center flex-wrap items-center"
           style={{ background: "rgba(0,0,0,0.0)" }}
         >
-          <div className="d-flex m-0 p-0 justify-content-center flex-wrap align-items-center">
+          <div className="flex m-0 p-0 justify-center flex-wrap items-center">
             <div
-              className="container-fluid m-0 p-4"
+              className="m-0 p-4 bg-gray-800 w-full text-gray-100"
               style={{
-                background: "rgba(255,255,255,0.7)",
+                // background: "rgba(255,255,255,0.7)",
                 border: "3px",
                 borderStyle: "hidden",
                 borderColor: "rgba(0,0,0,0)",
@@ -306,57 +319,65 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
               }}
             >
               <h4
-                className="text-center"
+                className="text-center text-red-400 text-xl my-8 cursor-default"
                 style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
               >
                 Tamzirtapoz API {`(Node.js Part)`}
               </h4>
-              <h5 className="text-danger m-0 p-0">
-                Example page that require authentication:
+              <h5 className="text-red-500 mt-4 p-0">
+                Example page that requires authentication:
               </h5>
               <a
                 href={urlServer + "/users/protected"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-blue-400 font-mono"
               >
                 User's Protected Area
               </a>
-              <h5 className="text-success m-0 p-0">
+              <h5 className="text-green-500 mt-4 p-0">
                 Example pages that do not require authentication:
               </h5>
               <a
                 href={urlServer + "/downloads/open-personal-cv"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-blue-400 font-mono"
               >
                 See my CV via Tamzirtapoz API
               </a>
+              <br />
               {" or "}
+              <br />
               <a
                 href={urlServer + "/market/categories"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-blue-400 font-mono"
               >
-                Categories list from Tamzirtapoz API
+                Category list from Tamzirtapoz API
               </a>
+              <br />
               {" or "}
+              <br />
               <a
                 href={urlServer + "/market/all-products"}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-blue-400 font-mono"
               >
                 Products list from Tamzirtapoz API
               </a>
-              <p className="text-dark">{backendNodeParagraph1}</p>
-              <div className="d-flex m-0 p-0 justify-content-around flex-wrap">
-                <div className="container-fluid m-0 p-0">
-                  <ol>
+              <div className="flex m-0 p-0 justify-around flex-wrap w-full">
+                <div className="flex flex-col justify-center items-start m-0 p-0">
+                  <p className="mt-4 text-justify">{backendNodeParagraph1}</p>
+                  <ol className="list-decimal text-gray-100 m-4 w-full">
                     {backendNodeContent.map((item, index) => {
                       return (
                         <li key={index}>
                           {item.title}{" "}
                           <button
-                            className="text-primary"
+                            className="text-red-500"
                             style={{
                               border: "0px",
                               borderStyle: "solid",
@@ -382,9 +403,13 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                 href="https://github.com/tamzirtapoz/tamzirtapoz-Node.js-Backend"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="text-blue-400"
               >
                 Source Code on GitHub{" "}
-                <GoMarkGithub style={{ fontSize: "20px" }} />
+                <GoMarkGithub
+                  style={{ fontSize: "20px" }}
+                  className="inline-block"
+                />
               </a>
             </div>
           </div>

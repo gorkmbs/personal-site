@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import welcome from "../assets/welcome.png";
 import animals from "../assets/animals.jpg";
 import videos from "../assets/videos.png";
@@ -36,7 +36,7 @@ import pageFlip from "../soundEffects/pageFlip.mp3";
 const tamzirtapozImages = [welcome, bot1, animals, videos, messaging1];
 const marketTamzirtapozImages = [sidebar1, addBag1, payment2, generalMain1];
 
-const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
+const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [detailsData, setDetailsData] = useState({
     title: "",
@@ -47,14 +47,28 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
   });
   const [showBiggerImageModal, setShowBiggerImageModal] = useState(false);
   const [currentBigImage, setCurrentBigImage] = useState(animals);
+  const [showBackground, setShowBackground] = useState(true);
   const [playPageFlip] = useSound(pageFlip);
+
+  useEffect(() => {
+    let edu = document.getElementById("education");
+    let eduH = edu.offsetTop;
+    if (Number(eduH) - Number(navbarHeight) - 150 < pageYPosition) {
+      setShowBackground(false);
+    } else {
+      setShowBackground(true);
+    }
+    // eslint-disable-next-line
+  }, [pageYPosition]);
 
   return (
     <>
       <div className="bg-red-600" style={{ height: "2px" }}></div>
       <div
         id="projectsPage"
-        className="flex flex-col m-0 p-0 bg-gray-900 opacity-100 justify-center items-center"
+        className={`flex flex-col m-0 p-0 bg-gray-900 transition duration-1000 ease ${
+          showBackground ? "" : "bg-opacity-0"
+        } justify-center items-center`}
         style={{ minHeight: "350px", zIndex: 6, width: "100%" }}
       >
         <div
@@ -64,7 +78,23 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
             top: pageWidth >= 768 ? "80px" : "64px",
           }}
         >
-          <h1 className="cursor-default">Projects and Education</h1>
+          <h1 className="cursor-default">
+            <span
+              className={`transition duration-1000 ease ${
+                !showBackground ? "" : "text-red-500"
+              }`}
+            >
+              Projects
+            </span>{" "}
+            and{" "}
+            <span
+              className={`transition duration-1000 ease ${
+                !showBackground ? "text-red-500" : ""
+              }`}
+            >
+              Education
+            </span>
+          </h1>
         </div>
 
         {/* main tamzirtapoz */}
@@ -94,7 +124,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                 href="https://tamzirtapoz.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-400 "
+                className="text-blue-400 font-mono"
               >
                 See the tamzirtapoz web application while working
               </a>
@@ -208,7 +238,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                 Project Market {`(React.js)`}
               </h4>
               <a
-                className="text-blue-400 "
+                className="text-blue-400 font-mono"
                 href="https://market-tamzirtapoz.netlify.app/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -415,44 +445,38 @@ const Projects = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
           </div>
         </div>
         <div style={{ height: "20px" }}></div>
-        <div style={{ background: "blue", height: "3px" }}></div>
-        <div style={{ height: "20px" }}></div>
-        <div className="container-fluid m-0 p-4">
-          <div
-            className="container-fluid"
-            style={{
-              background: "rgba(255, 255, 234, 0.5)",
-              border: "15px double rgba(255,255,255,1)",
-              borderRadius: "35px",
-            }}
-          >
-            <h1 className="text-center">Education</h1>
+        <div className="w-full h-1 bg-blue-700"></div>
+
+        <div className="flex flex-col m-0 p-4" id="education">
+          <h1 className="text-center text-red-500 text-3xl mb-8 mt-4">
+            Education
+          </h1>
+          <div className="">
             {educational.map((item, index) => {
               return (
-                <div className="d-flex justify-content-center" key={index}>
+                <div className="flex flex-wrap justify-center" key={index}>
                   <div
-                    className="mb-4 p-3"
+                    className="mb-4 p-3 w-full border border-1 border-solid border-red-900 bg-gray-900 bg-opacity-80"
                     style={{
-                      width: "95vw",
                       maxWidth: "700px",
                       boxShadow: "10px 10px 10px rgba(0,0,0,0.4)",
-                      background:
-                        "linear-gradient(90deg, rgba(255,255,255,1) ,rgba(255, 255, 255, 0.3))",
-                      border: "1px solid rgba(0,0,0,0.2)",
+
                       borderRadius: "35px",
                     }}
                   >
-                    <h4 className="text-center text-primary">{item.subject}</h4>
-                    <h5>Video Courses</h5>
-                    <ol>
+                    <h4 className="text-center text-red-100 text-xl">
+                      {item.subject}
+                    </h4>
+                    <h5 className="text-red-300 my-4">Video Courses</h5>
+                    <ol className="list-decimal text-gray-100 m-4">
                       {item.videos.map((video, index2) => {
                         return (
-                          <li key={index2} className="text-primary">
+                          <li key={index2} className="my-2">
                             <a
                               href={video.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-dark"
+                              className="text-blue-400 font-mono"
                             >
                               {video.title}
                             </a>

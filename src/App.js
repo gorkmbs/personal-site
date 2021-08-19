@@ -22,10 +22,14 @@ function App() {
   // Heroku servers need a hello to start the server. Free plans automatically stop server after 30min no activity.
   // true for implementation, false for deploy
   const [saidHelloBackend, setSaidHelloBackend] = useState(true);
+  const [navbarHeight, setNavbarHeight] = useState("64");
 
   useEffect(() => {
     if (pageWidth >= 768) {
       setClassForMenuToggle("hide-navbar-toggle hidden-navbar-toggle");
+      setNavbarHeight("80");
+    } else {
+      setNavbarHeight("64");
     }
   }, [pageWidth]);
 
@@ -106,6 +110,7 @@ function App() {
         pageWidth={pageWidth}
         urlServer={urlServer}
         pageYPosition={pageYPosition}
+        navbarHeight={navbarHeight}
       />
       <Contacts
         urlServer={urlServer}

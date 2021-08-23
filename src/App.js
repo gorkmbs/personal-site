@@ -100,6 +100,7 @@ function App() {
         setClassForMenuToggle={setClassForMenuToggle}
         toggleNavbar={toggleNavbar}
         pageYPosition={pageYPosition}
+        navbarHeight={navbarHeight}
       />
       <About
         pageWidth={pageWidth}

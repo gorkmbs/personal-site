@@ -65,7 +65,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
     <>
       <div className="bg-red-600" style={{ height: "2px" }}></div>
       <div
-        id="projectsPage"
+        id="projects"
         className={`flex flex-col m-0 p-0 bg-gray-900 transition duration-1000 ease ${
           showBackground ? "" : "bg-opacity-0"
         } justify-center items-center`}

@@ -7,11 +7,19 @@ import { FaLinkedin } from "react-icons/fa";
 import { VscGithubInverted } from "react-icons/vsc";
 
 const NavbarSide = ({
-  setClassForMenuToggle,
   classForMenuToggle,
   toggleNavbar,
   pageYPosition,
+  navbarHeight,
 }) => {
+  const handleClick = (e, adress) => {
+    e.preventDefault();
+    // playClickEffect1();
+    window.scrollTo({
+      left: 0,
+      top: document.getElementById(adress).offsetTop - navbarHeight,
+    });
+  };
   return (
     <>
       <div className="flex h-20 items-center px-8 absolute">
@@ -87,13 +95,34 @@ const NavbarSide = ({
           </div>
           <div className="hidden md:flex md:justify-center md:items-center md:h-full">
             <div className="mx-8">
-              <h4>About</h4>
+              <h4
+                className="cursor-pointer"
+                onClick={(e) => {
+                  handleClick(e, "about");
+                }}
+              >
+                About
+              </h4>
             </div>
             <div className="mx-8">
-              <h4>Projects</h4>
+              <h4
+                className="cursor-pointer"
+                onClick={(e) => {
+                  handleClick(e, "projects");
+                }}
+              >
+                Projects
+              </h4>
             </div>
             <div className="mx-8">
-              <h4>Contacts</h4>
+              <h4
+                className="cursor-pointer"
+                onClick={(e) => {
+                  handleClick(e, "contacts");
+                }}
+              >
+                Contacts
+              </h4>
             </div>
 
             {/* <Menu as="div" className="relative inline-block text-left">
@@ -159,21 +188,45 @@ const NavbarSide = ({
               classForMenuToggle === "show-navbar-toggle" ? "toggle-item-1" : ""
             }`}
           >
-            <h4>About</h4>
+            <h4
+              className="cursor-pointer"
+              onClick={(e) => {
+                handleClick(e, "about");
+                toggleNavbar();
+              }}
+            >
+              About
+            </h4>
           </div>
           <div
             className={`mx-8 ${
               classForMenuToggle === "show-navbar-toggle" ? "toggle-item-2" : ""
             }`}
           >
-            <h4>Projects</h4>
+            <h4
+              className="cursor-pointer"
+              onClick={(e) => {
+                handleClick(e, "projects");
+                toggleNavbar();
+              }}
+            >
+              Projects
+            </h4>
           </div>
           <div
             className={`mx-8 ${
               classForMenuToggle === "show-navbar-toggle" ? "toggle-item-3" : ""
             }`}
           >
-            <h4>Contacts</h4>
+            <h4
+              className="cursor-pointer"
+              onClick={(e) => {
+                handleClick(e, "contacts");
+                toggleNavbar();
+              }}
+            >
+              Contacts
+            </h4>
           </div>
         </div>
       </div>

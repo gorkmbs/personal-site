@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment, useRef } from "react";
 import { GoMarkGithub } from "react-icons/go";
 import { SiLinkedin } from "react-icons/si";
 import { FiMail } from "react-icons/fi";
 import { RiNewspaperLine } from "react-icons/ri";
-import { Modal } from "react-bootstrap";
 import { VscLoading } from "react-icons/vsc";
+import { Dialog, Transition } from "@headlessui/react";
+// import { ExclamationCircleIcon } from "@heroicons/react/outline";
+// import { BadgeCheckIcon } from "@heroicons/react/outline";
+import nightSky from "../assets/nightSky.jpg";
 
 const Joi = require("joi");
 const axios = require("axios");
@@ -21,6 +24,8 @@ const Contacts = ({ urlServer, pageYPosition, pageWidth }) => {
   const [isErrorGeneral, setIsErrorGeneral] = useState(true);
   const [submit, setSubmit] = useState("Send Mail");
   const [openedDirectMail, setOpenedDirectMail] = useState(false);
+
+  const cancelButtonRef = useRef(null);
 
   useEffect(() => {
     let testUrl = window.location.pathname;
@@ -141,7 +146,7 @@ const Contacts = ({ urlServer, pageYPosition, pageWidth }) => {
       <div className="bg-red-600" style={{ height: "2px" }}></div>
       <div
         className="flex flex-col m-0 p-0 contactsPageGeneral bg-gray-900"
-        id="contactsPage"
+        id="contacts"
         style={{ minHeight: "100vh" }}
       >
         <div
@@ -257,334 +262,426 @@ const Contacts = ({ urlServer, pageYPosition, pageWidth }) => {
               </div>
             </div>
           </div>
-          <div className="text-white w-full md:w-1/2">
-            <h1 className="text-center m-0 p-0">Send An E-Mail</h1>
-            <form onSubmit={handleSendMail}>
-              <div className="">
+          <div className="flex justify-center items-center w-full lg:w-1/2 p-4">
+            <div className="bg-gray-700 rounded-xl p-4">
+              <h1 className="text-center m-0 p-0 text-gray-100">
+                Send An E-Mail
+              </h1>
+              <div
+                style={{ height: "2px" }}
+                className="bg-red-600 mt-2 mb-4"
+              ></div>
+              <form onSubmit={handleSendMail}>
+                <div className="text-gray-100">
+                  <label htmlFor="name">Name</label>
+                  <br />
+                  <input
+                    style={{
+                      background: isError[0] ? "" : "rgba(50,155,50,0.7)",
+                    }}
+                    type="text"
+                    className="w-64 sm:w-96 my-2 p-2 bg-gray-600 placeholder-gray-100 text-xl text-gray-100 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent focus:bg-blue-900 transition ease transition-1000"
+                    id="name"
+                    placeholder="Your name please"
+                    value={yourName}
+                    onChange={(e) => setYourName(e.target.value)}
+                  />
+                  <br />
+                  {isError[0] ? (
+                    <small id="name" className="text-red-100">
+                      Name {error[0].substring(10, 255)}
+                    </small>
+                  ) : (
+                    ""
+                  )}
+                </div>
                 <br />
-                <label htmlFor="name">Name</label>
-                <input
-                  style={{
-                    background: isError[0]
-                      ? "rgba(255,255,255,0.9)"
-                      : "rgba(0,255,0,0.1)",
-                  }}
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  placeholder="Your name please"
-                  value={yourName}
-                  onChange={(e) => setYourName(e.target.value)}
-                />
-                {isError[0] ? (
-                  <small id="name" className="text-danger">
-                    {error[0].substring(10, 255)}
-                  </small>
-                ) : (
-                  ""
-                )}
-              </div>
-              <br />
-              <div className="form-group">
-                <label htmlFor="password">Your E-Mail Address</label>
-                <input
-                  style={{
-                    background: isError[1]
-                      ? "rgba(255,255,255,0.9)"
-                      : "rgba(0,255,0,0.1)",
-                  }}
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  placeholder="Please enter your e-mail"
-                  value={yourEmailAddress}
-                  onChange={(e) => setYourEmailAddress(e.target.value)}
-                />
-                {isError[1] ? (
-                  <small id="name" className="text-danger">
-                    {error[1].substring(18, 255)}
-                  </small>
-                ) : (
-                  ""
-                )}
-              </div>
-              <br />
-              <div className="form-group">
-                <label htmlFor="password">Subject</label>
-                <input
-                  style={{
-                    background: isError[2]
-                      ? "rgba(255,255,255,0.9)"
-                      : "rgba(0,255,0,0.1)",
-                  }}
-                  type="text"
-                  className="form-control"
-                  id="subject"
-                  placeholder="Enter subject please"
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                />
-                {isError[2] ? (
-                  <small id="name" className="text-danger">
-                    {error[2].substring(10, 255)}
-                  </small>
-                ) : (
-                  ""
-                )}
-              </div>
-              <br />
-              <div className="form-group">
-                <label htmlFor="paragraph">Your Text</label>
-                <textarea
-                  style={{
-                    background: isError[3]
-                      ? "rgba(255,255,255,0.9)"
-                      : "rgba(0,255,0,0.1)",
-                  }}
-                  type="text"
-                  className="form-control"
-                  id="paragraph"
-                  placeholder="Enter your message please"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  rows="3"
-                ></textarea>
-                {isError[3] ? (
-                  <small id="name" className="text-danger">
-                    {error[3].substring(10, 255)}
-                  </small>
-                ) : (
-                  ""
-                )}
-              </div>
-              <br />
-              {isErrorGeneral ? (
-                <>
-                  {errorGeneral === "Successfully sent !" ? (
+                <div className="text-gray-100">
+                  <label htmlFor="password">Your E-Mail Address</label>
+                  <br />
+                  <input
+                    style={{
+                      background: isError[1] ? "" : "rgba(50,155,50,0.7)",
+                    }}
+                    type="email"
+                    className="w-64 sm:w-96 my-2 p-2 bg-gray-600 placeholder-gray-100 text-xl text-gray-100 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent focus:bg-blue-900 transition ease transition-1000"
+                    id="email"
+                    placeholder="Please enter your e-mail"
+                    value={yourEmailAddress}
+                    onChange={(e) => setYourEmailAddress(e.target.value)}
+                  />
+                  <br />
+                  {isError[1] ? (
+                    <small id="email" className="text-red-100">
+                      Email {error[1].substring(18, 255)}
+                    </small>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <br />
+                <div className="text-gray-100">
+                  <label htmlFor="subject">Subject</label>
+                  <br />
+                  <input
+                    style={{
+                      background: isError[2] ? "" : "rgba(50,155,50,0.7)",
+                    }}
+                    type="text"
+                    className="w-64 sm:w-96 my-2 p-2 bg-gray-600 placeholder-gray-100 text-xl text-gray-100 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent focus:bg-blue-900 transition ease transition-1000"
+                    id="subject"
+                    placeholder="Enter subject please"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
+                  />
+                  <br />
+                  {isError[2] ? (
+                    <small id="subject" className="text-red-100">
+                      Subject {error[2].substring(10, 255)}
+                    </small>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <br />
+                <div className="text-gray-100">
+                  <label htmlFor="paragraph">Your Text</label>
+                  <br />
+                  <textarea
+                    style={{
+                      background: isError[3] ? "" : "rgba(50,155,50,0.7)",
+                    }}
+                    type="text"
+                    className="w-64 sm:w-96 my-2 p-2 bg-gray-600 placeholder-gray-100 text-xl text-gray-100 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent focus:bg-blue-900 transition ease transition-1000"
+                    id="paragraph"
+                    placeholder="Enter your message please"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    rows="3"
+                  ></textarea>
+                  <br />
+                  {isError[3] ? (
+                    <small id="paragraph" className="text-red-100">
+                      Message {error[3].substring(10, 255)}
+                    </small>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <br />
+                <div className="flex justify-center my-2">
+                  {isErrorGeneral ? (
                     <>
-                      <h1 id="name" className="text-success">
-                        {errorGeneral}
-                      </h1>
+                      {errorGeneral === "Successfully sent !" ? (
+                        <>
+                          <h1 id="name" className="text-green-200">
+                            {errorGeneral}
+                          </h1>
+                        </>
+                      ) : (
+                        <>
+                          <h1 id="name" className="text-red-200">
+                            {errorGeneral}
+                          </h1>
+                        </>
+                      )}
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="flex justify-center">
+                  {isErrorGeneral ? (
+                    <>
+                      <button
+                        type="submit"
+                        className="bg-red-600 text-gray-100 px-4 py-2 rounded-lg"
+                        disabled
+                      >
+                        <div>
+                          <p>
+                            {submit}
+                            {submit === "Send Mail" ? (
+                              ""
+                            ) : (
+                              <>
+                                <VscLoading className="rotate360 inline-block" />
+                              </>
+                            )}
+                          </p>
+                        </div>
+                      </button>
                     </>
                   ) : (
                     <>
-                      <h1 id="name" className="text-danger">
-                        {errorGeneral}
-                      </h1>
+                      <button
+                        type="submit"
+                        className="bg-red-600 text-gray-100 px-4 py-2 rounded-lg"
+                      >
+                        <div>
+                          <p>
+                            {submit}
+                            {submit === "Send Mail" ? (
+                              ""
+                            ) : (
+                              <>
+                                <VscLoading className="rotate360 inline-block" />
+                              </>
+                            )}
+                          </p>
+                        </div>
+                      </button>
                     </>
                   )}
-                </>
-              ) : (
-                ""
-              )}
-              {isErrorGeneral ? (
-                <>
-                  <button type="submit" className="btn btn-primary" disabled>
-                    {submit}
-                    {submit === "Send Mail" ? (
-                      ""
-                    ) : (
-                      <>{<VscLoading className="rotate360" />}</>
-                    )}
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button type="submit" className="btn btn-primary">
-                    {submit}
-                    {submit === "Send Mail" ? (
-                      ""
-                    ) : (
-                      <>{<VscLoading className="rotate360" />}</>
-                    )}
-                  </button>
-                </>
-              )}
-
-              <br />
-              <br />
-            </form>
+                </div>
+                <br />
+                <br />
+              </form>
+            </div>
           </div>
         </div>
         <div style={{ height: "30px" }}></div>
       </div>
-      <Modal
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        show={showMailModal}
-        style={{ background: "rgba(0,0,0,0.3)" }}
-        onHide={() => {
-          setShowMailModal(false);
-        }}
-        centered
-      >
-        <Modal.Header>
-          <Modal.Title id="contained-modal-title-vcenter">
-            <div
-              className="d-flex justify-content-end"
-              style={{ position: "absolute", width: "93%" }}
+      <Transition.Root show={showMailModal} as={Fragment}>
+        <Dialog
+          as="div"
+          auto-reopen="true"
+          className="fixed inset-0 overflow-y-auto"
+          initialFocus={cancelButtonRef}
+          onClose={setShowMailModal}
+          style={{ zIndex: "100" }}
+        >
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
             >
-              <button
-                className="btn btn-danger"
-                style={{ position: "fixed", zIndex: "2500" }}
-                onClick={() => {
-                  setShowMailModal(false);
-                }}
-              >
-                X
-              </button>
-            </div>
-            <h1 className="text-dark m-0 p-0">Send an e-mail</h1>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form onSubmit={handleSendMail}>
-            <div className="form-group">
-              <br />
-              <label htmlFor="name">Name</label>
-              <input
+              <Dialog.Overlay
+                className="fixed inset-0 bg-opacity-100 transition-opacity"
                 style={{
-                  background: isError[0]
-                    ? "rgba(255,255,255,0.9)"
-                    : "rgba(0,255,0,0.1)",
+                  backgroundImage: `url(${nightSky})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
                 }}
-                type="text"
-                className="form-control"
-                id="name"
-                placeholder="Your name please"
-                value={yourName}
-                onChange={(e) => setYourName(e.target.value)}
               />
-              {isError[0] ? (
-                <small id="name" className="text-danger">
-                  {error[0].substring(10, 255)}
-                </small>
-              ) : (
-                ""
-              )}
-            </div>
-            <br />
-            <div className="form-group">
-              <label htmlFor="password">Your E-Mail Address</label>
-              <input
-                style={{
-                  background: isError[1]
-                    ? "rgba(255,255,255,0.9)"
-                    : "rgba(0,255,0,0.1)",
-                }}
-                type="email"
-                className="form-control"
-                id="email"
-                placeholder="Please enter your e-mail"
-                value={yourEmailAddress}
-                onChange={(e) => setYourEmailAddress(e.target.value)}
-              />
-              {isError[1] ? (
-                <small id="name" className="text-danger">
-                  {error[1].substring(18, 255)}
-                </small>
-              ) : (
-                ""
-              )}
-            </div>
-            <br />
-            <div className="form-group">
-              <label htmlFor="password">Subject</label>
-              <input
-                style={{
-                  background: isError[2]
-                    ? "rgba(255,255,255,0.9)"
-                    : "rgba(0,255,0,0.1)",
-                }}
-                type="text"
-                className="form-control"
-                id="subject"
-                placeholder="Enter subject please"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-              />
-              {isError[2] ? (
-                <small id="name" className="text-danger">
-                  {error[2].substring(10, 255)}
-                </small>
-              ) : (
-                ""
-              )}
-            </div>
-            <br />
-            <div className="form-group">
-              <label htmlFor="paragraph">Your Text</label>
-              <textarea
-                style={{
-                  background: isError[3]
-                    ? "rgba(255,255,255,0.9)"
-                    : "rgba(0,255,0,0.1)",
-                }}
-                type="text"
-                className="form-control"
-                id="paragraph"
-                placeholder="Enter your message please"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                rows="3"
-              ></textarea>
-              {isError[3] ? (
-                <small id="name" className="text-danger">
-                  {error[3].substring(10, 255)}
-                </small>
-              ) : (
-                ""
-              )}
-            </div>
-            <br />
-            {isErrorGeneral ? (
-              <>
-                {errorGeneral === "Successfully sent !" ? (
-                  <>
-                    <h1 id="name" className="text-success">
-                      {errorGeneral}
-                    </h1>
-                  </>
-                ) : (
-                  <>
-                    <h1 id="name" className="text-danger">
-                      {errorGeneral}
-                    </h1>
-                  </>
-                )}
-              </>
-            ) : (
-              ""
-            )}
-            {isErrorGeneral ? (
-              <>
-                <button type="submit" className="btn btn-primary" disabled>
-                  {submit}
-                  {submit === "Send Mail" ? (
-                    ""
-                  ) : (
-                    <>{<VscLoading className="rotate360" />}</>
-                  )}
-                </button>
-              </>
-            ) : (
-              <>
-                <button type="submit" className="btn btn-primary">
-                  {submit}
-                  {submit === "Send Mail" ? (
-                    ""
-                  ) : (
-                    <>{<VscLoading className="rotate360" />}</>
-                  )}
-                </button>
-              </>
-            )}
+            </Transition.Child>
 
-            <br />
-            <br />
-          </form>
-        </Modal.Body>
-      </Modal>
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="hidden sm:inline-block sm:align-middle sm:h-screen"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              enterTo="opacity-100 translate-y-0 sm:scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            >
+              <div className="inline-block align-bottom rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div
+                  className="fixed flex justify-end w-full"
+                  style={{ top: 20 }}
+                >
+                  <button
+                    className="absolute py-2 px-4 text-red-100 mr-8 bg-red-600 bg-opacity-75"
+                    onClick={() => {
+                      setShowMailModal(false);
+                    }}
+                  >
+                    X
+                  </button>
+                </div>
+                <div className="bg-gray-700 rounded-xl p-4 pt-8">
+                  <h1 className="text-center m-0 p-0 text-gray-100">
+                    Send An E-Mail
+                  </h1>
+
+                  <div
+                    style={{ height: "2px" }}
+                    className="bg-red-600 mt-2 mb-4"
+                  ></div>
+                  <form onSubmit={handleSendMail}>
+                    <div className="text-gray-100">
+                      <label htmlFor="name">Name</label>
+                      <br />
+                      <input
+                        style={{
+                          background: isError[0] ? "" : "rgba(50,155,50,0.7)",
+                        }}
+                        type="text"
+                        className="w-full my-2 p-2 bg-gray-600 placeholder-gray-100 text-xl text-gray-100 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent focus:bg-blue-900 transition ease transition-1000"
+                        id="name"
+                        placeholder="Your name please"
+                        value={yourName}
+                        onChange={(e) => setYourName(e.target.value)}
+                      />
+                      <br />
+                      {isError[0] ? (
+                        <small id="name" className="text-red-100">
+                          Name {error[0].substring(10, 255)}
+                        </small>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    <br />
+                    <div className="text-gray-100">
+                      <label htmlFor="password">Your E-Mail Address</label>
+                      <br />
+                      <input
+                        style={{
+                          background: isError[1] ? "" : "rgba(50,155,50,0.7)",
+                        }}
+                        type="email"
+                        className="w-full my-2 p-2 bg-gray-600 placeholder-gray-100 text-xl text-gray-100 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent focus:bg-blue-900 transition ease transition-1000"
+                        id="email"
+                        placeholder="Please enter your e-mail"
+                        value={yourEmailAddress}
+                        onChange={(e) => setYourEmailAddress(e.target.value)}
+                      />
+                      <br />
+                      {isError[1] ? (
+                        <small id="email" className="text-red-100">
+                          Email {error[1].substring(18, 255)}
+                        </small>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    <br />
+                    <div className="text-gray-100">
+                      <label htmlFor="subject">Subject</label>
+                      <br />
+                      <input
+                        style={{
+                          background: isError[2] ? "" : "rgba(50,155,50,0.7)",
+                        }}
+                        type="text"
+                        className="w-full my-2 p-2 bg-gray-600 placeholder-gray-100 text-xl text-gray-100 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent focus:bg-blue-900 transition ease transition-1000"
+                        id="subject"
+                        placeholder="Enter subject please"
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                      />
+                      <br />
+                      {isError[2] ? (
+                        <small id="subject" className="text-red-100">
+                          Subject {error[2].substring(10, 255)}
+                        </small>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    <br />
+                    <div className="text-gray-100">
+                      <label htmlFor="paragraph">Your Text</label>
+                      <br />
+                      <textarea
+                        style={{
+                          background: isError[3] ? "" : "rgba(50,155,50,0.7)",
+                        }}
+                        type="text"
+                        className="w-full my-2 p-2 bg-gray-600 placeholder-gray-100 text-xl text-gray-100 rounded-lg border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent focus:bg-blue-900 transition ease transition-1000"
+                        id="paragraph"
+                        placeholder="Enter your message please"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        rows="3"
+                      ></textarea>
+                      <br />
+                      {isError[3] ? (
+                        <small id="paragraph" className="text-red-100">
+                          Message {error[3].substring(10, 255)}
+                        </small>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    <br />
+                    <div className="flex justify-center my-2">
+                      {isErrorGeneral ? (
+                        <>
+                          {errorGeneral === "Successfully sent !" ? (
+                            <>
+                              <h1 id="name" className="text-green-200">
+                                {errorGeneral}
+                              </h1>
+                            </>
+                          ) : (
+                            <>
+                              <h1 id="name" className="text-red-200">
+                                {errorGeneral}
+                              </h1>
+                            </>
+                          )}
+                        </>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                    <div className="flex justify-center">
+                      {isErrorGeneral ? (
+                        <>
+                          <button
+                            type="submit"
+                            className="bg-red-600 text-gray-100 px-4 py-2 rounded-lg"
+                            disabled
+                          >
+                            <div>
+                              <p>
+                                {submit}
+                                {submit === "Send Mail" ? (
+                                  ""
+                                ) : (
+                                  <>
+                                    <VscLoading className="rotate360 inline-block" />
+                                  </>
+                                )}
+                              </p>
+                            </div>
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            type="submit"
+                            className="bg-red-600 text-gray-100 px-4 py-2 rounded-lg"
+                          >
+                            <div>
+                              <p>
+                                {submit}
+                                {submit === "Send Mail" ? (
+                                  ""
+                                ) : (
+                                  <>
+                                    <VscLoading className="rotate360 inline-block" />
+                                  </>
+                                )}
+                              </p>
+                            </div>
+                          </button>
+                        </>
+                      )}
+                    </div>
+                    <br />
+                    <br />
+                  </form>
+                </div>
+              </div>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition.Root>
     </>
   );
 };

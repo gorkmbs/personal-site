@@ -5,10 +5,11 @@ import { IconContext } from "react-icons";
 import { ImQuotesLeft, ImQuotesRight } from "react-icons/im";
 // import nightSky from "../assets/nightSky.jpg";
 
-const About = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
+const About = ({ urlServer }) => {
   return (
     <div
       className="m-0 p-0 pt-32 pb-8"
+      id="about"
       style={{
         // backgroundImage: `url(${nightSky})`,
         minHeight: "100vh",
@@ -52,7 +53,12 @@ const About = ({ pageWidth, pageYPosition, navbarSpace, urlServer }) => {
                 </IconContext.Provider>
               </p>
               <div className="flex flex-wrap justify-center text-white my-16">
-                <button className="bg-red-900 hover:bg-red-700 contant-me-button text-white  px-4 py-2 text-xl rounded-xl">
+                <button
+                  className="bg-red-900 hover:bg-red-700 contant-me-button text-white  px-4 py-2 text-xl rounded-xl"
+                  onClick={() => {
+                    window.location.pathname = "/direct-mail";
+                  }}
+                >
                   Contact Me
                 </button>
                 <div className="font-mono mt-2 mx-4">

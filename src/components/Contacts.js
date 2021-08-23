@@ -9,7 +9,7 @@ import { VscLoading } from "react-icons/vsc";
 const Joi = require("joi");
 const axios = require("axios");
 
-const Contacts = ({ urlServer, pageYPosition, navbarSpace }) => {
+const Contacts = ({ urlServer, pageYPosition, pageWidth }) => {
   const [showMailModal, setShowMailModal] = useState(false);
   const [yourName, setYourName] = useState("");
   const [yourEmailAddress, setYourEmailAddress] = useState("");
@@ -138,137 +138,272 @@ const Contacts = ({ urlServer, pageYPosition, navbarSpace }) => {
 
   return (
     <>
+      <div className="bg-red-600" style={{ height: "2px" }}></div>
       <div
-        className="container-fluid m-0 p-0 contactsPageGeneral"
+        className="flex flex-col m-0 p-0 contactsPageGeneral bg-gray-900"
         id="contactsPage"
         style={{ minHeight: "100vh" }}
       >
-        <h1
-          className="text-center shadow"
+        <div
+          className="flex justify-center w-full h-16 md:h-20 items-center text-gray-100 text-3xl bg-gray-900"
           style={{
-            background:
-              pageYPosition >
-              document.getElementById("contactsPage")?.offsetTop - navbarSpace
-                ? "rgb(244, 255, 83)"
-                : "rgba(255,255,255,0.2)",
             position: "sticky",
-            top: navbarSpace,
+            top: pageWidth >= 768 ? "80px" : "64px",
           }}
         >
-          Contact Information
-        </h1>
-        <div style={{ height: "50px" }}></div>
-        <div className="d-flex m-2 p-2 justify-content-around flex-wrap align-items-center ">
-          <div
-            className="m-2 p-2"
-            style={{
-              background: "rgba(255,255,255,0.8)",
-              border: "5px solid rgba(255,255,255,1)",
-              borderRadius: "15px",
-              width: "250px",
-              height: "220px",
-            }}
-          >
-            <h1 className="text-center">
-              <RiNewspaperLine />
-            </h1>
-            <h3 className="text-center">CV</h3>
-            <div className="d-flex justify-content-center ">
-              <a
-                className="text-center"
-                href={urlServer + "/downloads/personal-cv"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download
-              </a>
+          <h1 className="cursor-default text-gray-100">Contact Information</h1>
+        </div>
+        <div
+          className="flex lg:flex-row flex-col m-0 p-0 w-full justify-center items-center"
+          style={{ minHeight: "100vh" }}
+        >
+          <div className="flex p-4 justify-around flex-wrap items-center w-full lg:w-1/2">
+            <div
+              className="m-2 p-2 w-52 h-48 bg-gray-300 flex flex-col justify-center items-center"
+              style={{
+                border: "5px solid #ef4444",
+                borderRadius: "15px",
+              }}
+            >
+              <div className="flex justify-center itemx-center w-full text-6xl">
+                <RiNewspaperLine />
+              </div>
+              <h3 className="text-center">CV</h3>
+              <div className="flex justify-center w-full">
+                <a
+                  className="text-center text-blue-600"
+                  href={urlServer + "/downloads/personal-cv"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download
+                </a>
+              </div>
+              <p className="text-center m-1 p-0">or</p>
+              <div className="flex justify-center ">
+                <a
+                  className="text-center text-blue-600"
+                  href={urlServer + "/downloads/open-personal-cv"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Open on Browser
+                </a>
+              </div>
             </div>
-            <p className="text-center m-1 p-0">or</p>
-            <div className="d-flex justify-content-center ">
-              <a
-                href={urlServer + "/downloads/open-personal-cv"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Open on Browser
-              </a>
+            <div
+              className="m-2 p-2 w-52 h-48 bg-gray-300 flex flex-col justify-center items-center"
+              style={{
+                border: "5px solid #ef4444",
+                borderRadius: "15px",
+              }}
+            >
+              <div className="flex justify-center itemx-center w-full text-6xl">
+                <GoMarkGithub />
+              </div>
+              <h3 className="text-center mt-4">GitHub</h3>
+              <div className="flex justify-center ">
+                <a
+                  href="https://github.com/tamzirtapoz"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-600 m-0 p-0"
+                >
+                  Visit GitHub Profile
+                </a>
+              </div>
+            </div>
+            <div
+              className="m-2 p-2 w-52 h-48 bg-gray-300 flex flex-col justify-center items-center"
+              style={{
+                border: "5px solid #ef4444",
+                borderRadius: "15px",
+              }}
+            >
+              <div className="flex justify-center itemx-center w-full text-6xl">
+                <SiLinkedin />
+              </div>
+              <h3 className="text-center mt-4">LinkedIn</h3>
+              <div className="flex justify-center ">
+                <a
+                  href="https://www.linkedin.com/in/g%C3%B6rkem-bu%C4%9Fra-sara%C3%A7-3458b0149/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-blue-600 m-0 p-0"
+                >
+                  Visit LinkedIn Profile
+                </a>
+              </div>
+            </div>
+            <div
+              className="m-2 p-2 w-52 h-48 bg-gray-300 flex flex-col justify-center items-center"
+              style={{
+                border: "5px solid #ef4444",
+                borderRadius: "15px",
+              }}
+            >
+              <div className="flex justify-center itemx-center w-full text-6xl">
+                <FiMail />
+              </div>
+              <h3 className="text-center mt-4">E-Mail</h3>
+              <p className="text-center">gorkembsarac@gmail.com</p>
+              <div className="d-flex justify-content-center">
+                <button
+                  className="bg-red-600 px-4 py-2 rounded-xl mt-2 text-red-100"
+                  onClick={() => setShowMailModal(true)}
+                >
+                  Send E-Mail
+                </button>
+              </div>
             </div>
           </div>
-          <div
-            className="m-2 p-2"
-            style={{
-              background: "rgba(255,255,255,0.8)",
-              border: "5px solid rgba(255,255,255,1)",
-              borderRadius: "15px",
-              width: "250px",
-              height: "220px",
-            }}
-          >
-            <div style={{ height: "25px" }}></div>
-            <h1 className="text-center">
-              <GoMarkGithub />
-            </h1>
-            <h3 className="text-center">GitHub</h3>
-            <div className="d-flex justify-content-center ">
-              <a
-                href="https://github.com/tamzirtapoz"
-                target="_blank"
-                rel="noreferrer"
-                className="linkWithoutBlueLine m-0 p-0"
-              >
-                Visit GitHub Profile
-              </a>
-            </div>
-          </div>
-          <div
-            className="m-2 p-2"
-            style={{
-              background: "rgba(255,255,255,0.8)",
-              border: "5px solid rgba(255,255,255,1)",
-              borderRadius: "15px",
-              width: "250px",
-              height: "220px",
-            }}
-          >
-            <div style={{ height: "25px" }}></div>
-            <h1 className="text-center">
-              <SiLinkedin />
-            </h1>
-            <h3 className="text-center">LinkedIn</h3>
-            <div className="d-flex justify-content-center ">
-              <a
-                href="https://www.linkedin.com/in/g%C3%B6rkem-bu%C4%9Fra-sara%C3%A7-3458b0149/"
-                target="_blank"
-                rel="noreferrer"
-                className="linkWithoutBlueLine m-0 p-0"
-              >
-                Visit LinkedIn Profile
-              </a>
-            </div>
-          </div>
-          <div
-            className="m-2 p-2"
-            style={{
-              background: "rgba(255,255,255,0.8)",
-              border: "5px solid rgba(255,255,255,1)",
-              borderRadius: "15px",
-              width: "250px",
-              height: "220px",
-            }}
-          >
-            <h1 className="text-center">
-              <FiMail />
-            </h1>
-            <h3 className="text-center">E-Mail</h3>
-            <p className="text-center">gorkembsarac@gmail.com</p>
-            <div className="d-flex justify-content-center">
-              <button
-                className="btn btn-primary"
-                onClick={() => setShowMailModal(true)}
-              >
-                Send E-Mail
-              </button>
-            </div>
+          <div className="text-white w-full md:w-1/2">
+            <h1 className="text-center m-0 p-0">Send An E-Mail</h1>
+            <form onSubmit={handleSendMail}>
+              <div className="">
+                <br />
+                <label htmlFor="name">Name</label>
+                <input
+                  style={{
+                    background: isError[0]
+                      ? "rgba(255,255,255,0.9)"
+                      : "rgba(0,255,0,0.1)",
+                  }}
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  placeholder="Your name please"
+                  value={yourName}
+                  onChange={(e) => setYourName(e.target.value)}
+                />
+                {isError[0] ? (
+                  <small id="name" className="text-danger">
+                    {error[0].substring(10, 255)}
+                  </small>
+                ) : (
+                  ""
+                )}
+              </div>
+              <br />
+              <div className="form-group">
+                <label htmlFor="password">Your E-Mail Address</label>
+                <input
+                  style={{
+                    background: isError[1]
+                      ? "rgba(255,255,255,0.9)"
+                      : "rgba(0,255,0,0.1)",
+                  }}
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  placeholder="Please enter your e-mail"
+                  value={yourEmailAddress}
+                  onChange={(e) => setYourEmailAddress(e.target.value)}
+                />
+                {isError[1] ? (
+                  <small id="name" className="text-danger">
+                    {error[1].substring(18, 255)}
+                  </small>
+                ) : (
+                  ""
+                )}
+              </div>
+              <br />
+              <div className="form-group">
+                <label htmlFor="password">Subject</label>
+                <input
+                  style={{
+                    background: isError[2]
+                      ? "rgba(255,255,255,0.9)"
+                      : "rgba(0,255,0,0.1)",
+                  }}
+                  type="text"
+                  className="form-control"
+                  id="subject"
+                  placeholder="Enter subject please"
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                />
+                {isError[2] ? (
+                  <small id="name" className="text-danger">
+                    {error[2].substring(10, 255)}
+                  </small>
+                ) : (
+                  ""
+                )}
+              </div>
+              <br />
+              <div className="form-group">
+                <label htmlFor="paragraph">Your Text</label>
+                <textarea
+                  style={{
+                    background: isError[3]
+                      ? "rgba(255,255,255,0.9)"
+                      : "rgba(0,255,0,0.1)",
+                  }}
+                  type="text"
+                  className="form-control"
+                  id="paragraph"
+                  placeholder="Enter your message please"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  rows="3"
+                ></textarea>
+                {isError[3] ? (
+                  <small id="name" className="text-danger">
+                    {error[3].substring(10, 255)}
+                  </small>
+                ) : (
+                  ""
+                )}
+              </div>
+              <br />
+              {isErrorGeneral ? (
+                <>
+                  {errorGeneral === "Successfully sent !" ? (
+                    <>
+                      <h1 id="name" className="text-success">
+                        {errorGeneral}
+                      </h1>
+                    </>
+                  ) : (
+                    <>
+                      <h1 id="name" className="text-danger">
+                        {errorGeneral}
+                      </h1>
+                    </>
+                  )}
+                </>
+              ) : (
+                ""
+              )}
+              {isErrorGeneral ? (
+                <>
+                  <button type="submit" className="btn btn-primary" disabled>
+                    {submit}
+                    {submit === "Send Mail" ? (
+                      ""
+                    ) : (
+                      <>{<VscLoading className="rotate360" />}</>
+                    )}
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button type="submit" className="btn btn-primary">
+                    {submit}
+                    {submit === "Send Mail" ? (
+                      ""
+                    ) : (
+                      <>{<VscLoading className="rotate360" />}</>
+                    )}
+                  </button>
+                </>
+              )}
+
+              <br />
+              <br />
+            </form>
           </div>
         </div>
         <div style={{ height: "30px" }}></div>

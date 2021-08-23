@@ -362,7 +362,7 @@ export const educational = [
     webPages: [],
   },
   {
-    subject: "NODE.JS-EXPRESS-PASSPORT",
+    subject: "NODE.JS-EXPRESS-PASSPORT-MONGODB",
     videos: [
       {
         title: "Build A Node.js API Authentication With JWT Tutorial",

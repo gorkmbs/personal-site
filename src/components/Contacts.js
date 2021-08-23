@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Fragment, useRef } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 import { GoMarkGithub } from "react-icons/go";
 import { SiLinkedin } from "react-icons/si";
 import { FiMail } from "react-icons/fi";
 import { RiNewspaperLine } from "react-icons/ri";
 import { VscLoading } from "react-icons/vsc";
-import { Dialog, Transition } from "@headlessui/react";
 // import { ExclamationCircleIcon } from "@heroicons/react/outline";
 // import { BadgeCheckIcon } from "@heroicons/react/outline";
 import nightSky from "../assets/nightSky.jpg";
@@ -362,7 +362,7 @@ const Contacts = ({ urlServer, pageYPosition, pageWidth }) => {
                   <br />
                   {isError[3] ? (
                     <small id="paragraph" className="text-red-100">
-                      Message {error[3].substring(10, 255)}
+                      Text {error[3].substring(10, 255)}
                     </small>
                   ) : (
                     ""
@@ -601,7 +601,7 @@ const Contacts = ({ urlServer, pageYPosition, pageWidth }) => {
                       <br />
                       {isError[3] ? (
                         <small id="paragraph" className="text-red-100">
-                          Message {error[3].substring(10, 255)}
+                          Text {error[3].substring(10, 255)}
                         </small>
                       ) : (
                         ""

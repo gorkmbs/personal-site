@@ -5,6 +5,7 @@ import React from "react";
 // import { FiMenu } from "react-icons/fi";
 import { FaLinkedin } from "react-icons/fa";
 import { VscGithubInverted } from "react-icons/vsc";
+import { FiInstagram } from "react-icons/fi";
 
 const NavbarSide = ({
   classForMenuToggle,
@@ -24,16 +25,31 @@ const NavbarSide = ({
     <>
       <div className="flex h-20 items-center px-8 absolute">
         <div className="ml-4 pr-4 border-r border-r-2 border-gray-100">
-          <FaLinkedin className="text-gray-200 text-2xl opacity-80 " />
+          <a
+            href="https://www.linkedin.com/in/g%C3%B6rkem-bu%C4%9Fra-sara%C3%A7-3458b0149/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedin className="text-gray-200 text-2xl opacity-80 bg-gray-900" />
+          </a>
         </div>
         <div className="ml-4 pr-4 border-r border-r-2 border-gray-100">
-          <VscGithubInverted className="text-gray-200 text-2xl opacity-80 " />
-        </div>
-        <div className="ml-4 pr-4 border-r border-r-2 border-gray-100">
-          <VscGithubInverted className="text-gray-200 text-2xl opacity-80 " />
+          <a
+            href="https://github.com/tamzirtapoz"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <VscGithubInverted className="text-gray-200 text-2xl opacity-80 bg-gray-900" />
+          </a>
         </div>
         <div className="ml-4 pr-4 ">
-          <VscGithubInverted className="text-gray-200 text-2xl opacity-80" />
+          <a
+            href="https://www.instagram.com/gorkembs.1/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FiInstagram className="text-gray-200 text-2xl opacity-80 bg-gray-900" />
+          </a>
         </div>
       </div>
       <nav

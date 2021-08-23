@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment, useRef } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 import welcome from "../assets/welcome.png";
 import animals from "../assets/animals.jpg";
 import videos from "../assets/videos.png";
@@ -7,10 +8,11 @@ import sidebar1 from "../assets/market/sidebar1.jpg";
 import addBag1 from "../assets/market/addBag1.jpg";
 import payment2 from "../assets/market/payment2.jpg";
 import bot1 from "../assets/bot1.png";
+import nightSky from "../assets/nightSky.jpg";
 
 import generalMain1 from "../assets/market/generalMain1.png";
 import { GoMarkGithub } from "react-icons/go";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import {
   tamzirtapozParagraph1,
   tamzirtapozContent,
@@ -49,6 +51,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
   const [currentBigImage, setCurrentBigImage] = useState(animals);
   const [showBackground, setShowBackground] = useState(true);
   const [playPageFlip] = useSound(pageFlip);
+
+  const cancelButtonRef = useRef(null);
 
   useEffect(() => {
     let edu = document.getElementById("education");
@@ -495,73 +499,6 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
       <Modal
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
-        show={showDetailsModal}
-        style={{ background: "rgba(0,188,212,0.3)" }}
-        onHide={() => {
-          setShowDetailsModal(false);
-        }}
-        centered
-      >
-        <Modal.Header>
-          <Modal.Title id="contained-modal-title-vcenter">
-            <div
-              className="d-flex justify-content-end"
-              style={{ position: "absolute", width: "93%" }}
-            >
-              <button
-                className="btn btn-danger"
-                style={{ position: "fixed", zIndex: "2500" }}
-                onClick={() => {
-                  setShowDetailsModal(false);
-                }}
-              >
-                X
-              </button>
-            </div>
-            <h3 className="">{detailsData.title}</h3>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>{detailsData.paragraph1}</p>
-          <div className="d-flex justify-content-around align-items-center flex-wrap bg-dark">
-            {detailsData.photos.map((photo, index) => {
-              return (
-                <img
-                  onClick={() => {
-                    setCurrentBigImage(photo);
-                    setShowBiggerImageModal(true);
-                  }}
-                  src={photo}
-                  alt="Details"
-                  key={index}
-                  className="img-fluid m-2 rounded"
-                  style={{ maxWidth: "50vw", width: "250px" }}
-                />
-              );
-            })}
-          </div>
-          <ul>
-            {detailsData.ulItems.map((item, index) => {
-              return <li key={index}>{item}</li>;
-            })}
-          </ul>
-          <p>{detailsData.paragraph2}</p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button
-            className="text-capitalize"
-            variant="danger"
-            onClick={() => {
-              setShowDetailsModal(false);
-            }}
-          >
-            close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      <Modal
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
         show={showBiggerImageModal}
         style={{ background: "rgba(0,0,0,1)" }}
         onHide={() => {
@@ -596,6 +533,109 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
           />
         </Modal.Body>
       </Modal>
+      <Transition.Root show={showDetailsModal} as={Fragment}>
+        <Dialog
+          as="div"
+          auto-reopen="true"
+          className="fixed inset-0 overflow-y-auto"
+          initialFocus={cancelButtonRef}
+          onClose={setShowDetailsModal}
+          style={{ zIndex: "100" }}
+        >
+          <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Dialog.Overlay
+                className="fixed inset-0 bg-opacity-100 transition-opacity"
+                style={{
+                  backgroundImage: `url(${nightSky})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+            </Transition.Child>
+
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="hidden sm:inline-block sm:align-middle sm:h-screen"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              enterTo="opacity-100 translate-y-0 sm:scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            >
+              <div className="inline-block bg-gray-800 align-bottom rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-2/3">
+                <div
+                  className="fixed flex justify-end w-full"
+                  style={{ top: 20 }}
+                >
+                  <button
+                    className="absolute py-2 px-4 text-red-100 mr-8 bg-red-600 bg-opacity-75"
+                    onClick={() => {
+                      setShowDetailsModal(false);
+                    }}
+                  >
+                    X
+                  </button>
+                </div>
+                <h3 className="text-center text-gray-100 mt-16 mb-8 lg:text-3xl text-xl">
+                  {detailsData.title}
+                </h3>
+                <p className="text-justify text-gray-200 mb-8 mx-4">
+                  {detailsData.paragraph1}
+                </p>
+                <div className="flex justify-around items-center flex-wrap bg-gray-900 p-4">
+                  {detailsData.photos.map((photo, index) => {
+                    return (
+                      <img
+                        onClick={() => {
+                          setCurrentBigImage(photo);
+                          setShowBiggerImageModal(true);
+                        }}
+                        src={photo}
+                        alt="Details"
+                        key={index}
+                        className="m-2 rounded-lg cursor-pointer"
+                        style={{ maxWidth: "50vw", width: "250px" }}
+                      />
+                    );
+                  })}
+                </div>
+                <ul className="m-8 text-gray-100 list-disc">
+                  {detailsData.ulItems.map((item, index) => {
+                    return <li key={index}>{item}</li>;
+                  })}
+                </ul>
+                <p className="text-gray-100 mx-4">{detailsData.paragraph2}</p>
+                <div className="flex justify-center m-4">
+                  <button
+                    className="capitalize px-4 py-2 bg-red-600 rounded-xl text-gray-100"
+                    onClick={() => {
+                      setShowDetailsModal(false);
+                    }}
+                  >
+                    close
+                  </button>
+                </div>
+              </div>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition.Root>
     </>
   );
 };

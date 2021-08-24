@@ -106,7 +106,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
         className={`flex flex-col m-0 p-0 bg-gray-900 transition duration-1000 ease ${
           showBackground ? "" : "bg-opacity-0"
         } justify-center items-center`}
-        style={{ minHeight: "350px", zIndex: 6, width: "100%" }}
+        style={{ minHeight: "350px", zIndex: "6", width: "100%" }}
       >
         <div
           className="flex justify-center w-full h-16 md:h-20 items-center text-gray-100 text-3xl bg-gray-900"
@@ -144,7 +144,6 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
             <div
               className="m-0 p-4 bg-gray-800 w-full"
               style={{
-                // background: "rgba(255,255,255,0.7)",
                 border: "3px",
                 borderStyle: "hidden",
                 borderColor: "rgba(0,0,0,0)",
@@ -261,7 +260,6 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
             <div
               className="m-0 p-4 bg-gray-800 w-full"
               style={{
-                // background: "rgba(255,255,255,0.7)",
                 border: "3px",
                 borderStyle: "hidden",
                 borderColor: "rgba(0,0,0,0)",
@@ -378,7 +376,6 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
             <div
               className="m-0 p-4 bg-gray-800 w-full text-gray-100"
               style={{
-                // background: "rgba(255,255,255,0.7)",
                 border: "3px",
                 borderStyle: "hidden",
                 borderColor: "rgba(0,0,0,0)",
@@ -497,7 +494,6 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                     style={{
                       maxWidth: "700px",
                       boxShadow: "10px 10px 10px rgba(0,0,0,0.4)",
-
                       borderRadius: "35px",
                     }}
                   >

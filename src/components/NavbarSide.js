@@ -1,8 +1,4 @@
 import React from "react";
-// import { Fragment } from "react";
-// import { Menu, Transition } from "@headlessui/react";
-// import { ChevronDownIcon } from "@heroicons/react/solid";
-// import { FiMenu } from "react-icons/fi";
 import { FaLinkedin } from "react-icons/fa";
 import { VscGithubInverted } from "react-icons/vsc";
 import { FiInstagram } from "react-icons/fi";

@@ -87,7 +87,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
             className="py-2 px-4 text-red-100 mr-8 bg-red-600 bg-opacity-75"
             style={{
               position: "fixed",
-              right: "50px",
+              right: "10px",
               top: "50px",
               zIndex: "120",
             }}

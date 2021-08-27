@@ -19,6 +19,11 @@ import addProduct2 from "./assets/market/addProduct2.jpg";
 import productPage1 from "./assets/market/productPage1.jpg";
 import productPage2 from "./assets/market/productPage2.jpg";
 import generalMain1 from "./assets/market/generalMain1.png";
+import nap1 from "./assets/nap1.png";
+import nap2 from "./assets/nap2.png";
+import nap3 from "./assets/nap3.png";
+import nap4 from "./assets/nap4.png";
+import nap5 from "./assets/nap5.png";
 
 /*
  *** General info about Görkem Buğra Saraç
@@ -278,6 +283,62 @@ export const marketContent = [
 ];
 
 export const marketParagraph2 = `This site is based on React.js, Vanilla.js, Bootstrap, Redux, React-Redux JWT Authentication`;
+
+/*
+ *** Vue Nap Part
+ */
+
+export const napParagraph1 = `This is one of the professional project that I implement with using Vue.js. Because of some agreements, I can't share much information about this project.`;
+
+export const napImages = [nap1, nap2, nap3, nap4, nap5];
+
+export const napContent = [
+  {
+    title: "Dependencies",
+    paragraph1: "Dependencies are listed below.",
+    photos: [],
+    ulItems: [
+      "axios",
+      "axios-middleware",
+      "bind-dom",
+      "canvas2image",
+      "clipboard",
+      "core-js",
+      "deepmerge",
+      "feather-icons",
+      "js-cookie",
+      "line-awesome",
+      "lodash",
+      "moment",
+      "numeral",
+      "object-path",
+      "perfect-scrollbar",
+      "portal-vue",
+      "querystring",
+      "roboto-fontface",
+      "socicon",
+      "sweetalert2",
+      "tooltip.js",
+      "v-mask",
+      "vue",
+      "vue-axios",
+      "vue-feather-icons",
+      "vue-filter-number-format",
+      "vue-fragment",
+      "vue-i18n",
+      "vue-recaptcha",
+      "vue-router",
+      "vue-slick-carousel",
+      "vuedraggable",
+      "vuelidate",
+      "vuetify",
+      "vuex",
+    ],
+    paragraph2: "",
+  },
+];
+
+export const napParagraph2 = `This site is based on Vue.js, Vanilla.js, Bootstrap, Vuex, JWT Authentication`;
 
 /*
  *** tamzirtapoz Node.js Backend Server

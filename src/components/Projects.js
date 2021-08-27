@@ -9,6 +9,8 @@ import addBag1 from "../assets/market/addBag1.jpg";
 import payment2 from "../assets/market/payment2.jpg";
 import bot1 from "../assets/bot1.png";
 import nightSky from "../assets/nightSky.jpg";
+import apple from "../assets/apple.JPG";
+import firework from "../assets/firework.mp4";
 
 import generalMain1 from "../assets/market/generalMain1.png";
 import { GoMarkGithub } from "react-icons/go";
@@ -29,6 +31,13 @@ import {
   backendNodeParagraph2,
 } from "../information";
 
+import {
+  napParagraph1,
+  napContent,
+  napParagraph2,
+  napImages,
+} from "../information";
+
 import { educational } from "../information";
 
 import useSound from "use-sound";
@@ -39,6 +48,7 @@ const marketTamzirtapozImages = [sidebar1, addBag1, payment2, generalMain1];
 
 const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
+  const [showFirework, setShowFirework] = useState(false);
   const [detailsData, setDetailsData] = useState({
     title: "",
     paragraph1: "",
@@ -84,7 +94,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
       {showBiggerImageModal ? (
         <>
           <button
-            className="py-2 px-4 text-red-100 mr-8 bg-red-600 bg-opacity-75"
+            className="py-2 px-4 text-red-100 mr-8 bg-red-600"
             style={{
               position: "fixed",
               right: "10px",
@@ -362,6 +372,141 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                   className="inline-block"
                 />
               </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Apple Image Part */}
+        {showFirework ? (
+          <>
+            <div
+              className="firework-video"
+              style={{
+                width: "100vw",
+                height: "100vh",
+                zIndex: "200",
+                position: "fixed",
+                top: "0px",
+                left: "0px",
+              }}
+            >
+              <video
+                id="video"
+                autoPlay
+                className="w-full"
+                loop
+                muted
+                playsInline
+              >
+                <source id="mp4" src={firework} type="video/mp4" />
+                <p>Your user agent does not support the HTML5 Video element.</p>
+              </video>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+
+        <div className="flex justify-around w-full items center my-8 flex-wrap">
+          <div>
+            <img className="rounded-3xl" src={apple} alt="apple" />
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <div className="border border-red-600 border-2 text-gray-100 font-mono text-3xl m-4 p-8">
+              <p className="text-center">If you give up, you lose...</p>
+            </div>
+            <div className="flex w-full justify-center items-center m-8">
+              <button
+                className="rounded-xl bg-red-600 text-gray-100 px-4 py-2 text-lg hover:bg-green-600 transition ease transition-500"
+                onClick={() => {
+                  setShowFirework(true);
+                  setShowBackground(false);
+                  setTimeout(() => {
+                    setShowFirework(false);
+                    setShowBackground(false);
+                  }, 5000);
+                }}
+              >
+                Never Give Up !
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Nap Part */}
+
+        <div
+          className="flex m-4 p-2 justify-center flex-wrap items-center"
+          style={{ background: "rgba(0,0,0,0.0)" }}
+        >
+          <div className="flex m-0 p-0 justify-center flex-wrap items-center">
+            <div
+              className="m-0 p-4 bg-gray-800 w-full"
+              style={{
+                border: "3px",
+                borderStyle: "hidden",
+                borderColor: "rgba(0,0,0,0)",
+                borderRadius: "50px",
+              }}
+            >
+              <h4
+                className="text-center text-red-400 text-xl my-8 cursor-default"
+                style={{ textShadow: "10px 10px 5px rgba(0, 0, 0, 0.2)" }}
+              >
+                Project Napolyon {`(Vue.js)`}
+              </h4>
+
+              <div className="flex m-0 p-0 justify-around flex-wrap w-full">
+                <div className="flex flex-col justify-center m-0 p-0 lg:w-1/2">
+                  <p className="text-gray-100 mt-4 text-justify">
+                    {napParagraph1}
+                  </p>
+                  <ol className="list-decimal text-gray-100 m-4">
+                    {napContent.map((item, index) => {
+                      return (
+                        <li key={index}>
+                          {item.title}{" "}
+                          <button
+                            className="text-red-500"
+                            style={{
+                              border: "0px",
+                              borderStyle: "solid",
+                              borderColor: "rgba(0,0,0,0)",
+                              background: "rgba(0,0,0,0)",
+                            }}
+                            onClick={() => {
+                              setDetailsData(item);
+                              playPageFlip();
+                              setShowDetailsModal(true);
+                            }}
+                          >
+                            details
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                </div>
+                <div className="flex justify-around m-0 p-1 flex-wrap lg:w-1/2">
+                  {napImages.map((item, index) => {
+                    return (
+                      <div key={index} className="flex m-0 p-1">
+                        <img
+                          onClick={() => {
+                            setCurrentBigImage(item);
+                            setShowBiggerImageModal(true);
+                          }}
+                          className="m-4 cursor-pointer"
+                          src={item}
+                          alt="welcome"
+                          style={{ maxWidth: "200px" }}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <p className="text-gray-100 my-4">{napParagraph2}</p>
             </div>
           </div>
         </div>
@@ -677,7 +822,10 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <div className="inline-block bg-gray-800 align-bottom rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-2/3">
+              <div
+                className="sm:inline-block flex items-center align-middle rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:w-2/3"
+                style={{ minHeight: pageWidth < 640 ? "100vh" : "" }}
+              >
                 <button
                   className="py-0 px-0 text-red-100 mr-8 bg-red-600 bg-opacity-75"
                   style={{
@@ -689,13 +837,14 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                     setShowBiggerImageModal(false);
                   }}
                 ></button>
-
-                <img
-                  src={currentBigImage}
-                  alt="Bigger"
-                  style={{ width: "100%" }}
-                  className="rounded-xl"
-                />
+                <div className="flex h-full items-center">
+                  <img
+                    src={currentBigImage}
+                    alt="Bigger"
+                    style={{ width: "100%" }}
+                    className="rounded-xl"
+                  />
+                </div>
               </div>
             </Transition.Child>
           </div>

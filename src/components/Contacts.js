@@ -12,8 +12,13 @@ import nightSky from "../assets/nightSky.jpg";
 const Joi = require("joi");
 const axios = require("axios");
 
-const Contacts = ({ urlServer, pageYPosition, pageWidth }) => {
-  const [showMailModal, setShowMailModal] = useState(false);
+const Contacts = ({
+  urlServer,
+  pageYPosition,
+  pageWidth,
+  showMailModal,
+  setShowMailModal,
+}) => {
   const [yourName, setYourName] = useState("");
   const [yourEmailAddress, setYourEmailAddress] = useState("");
   const [subject, setSubject] = useState("");
@@ -36,6 +41,7 @@ const Contacts = ({ urlServer, pageYPosition, pageWidth }) => {
       }
     }
     return () => {};
+    // eslint-disable-next-line
   }, [openedDirectMail]);
 
   const handleSendMail = (e) => {

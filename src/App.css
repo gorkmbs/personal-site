@@ -183,14 +183,12 @@ html {
   background: rgba(248, 69, 69, 0.877);
   transform: rotate(45deg);
   position: absolute;
-  margin: 2px;
 }
 .show-menu-line-2 {
   width: 0px;
   height: 2px;
   background: rgba(248, 69, 69, 0.877);
   position: absolute;
-  margin: 2px;
 }
 .show-menu-line-3 {
   width: 20px;
@@ -198,5 +196,4 @@ html {
   background: rgba(248, 69, 69, 0.877);
   transform: rotate(-45deg);
   position: absolute;
-  margin: 2px;
 }

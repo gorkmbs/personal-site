@@ -21,7 +21,7 @@ function App() {
   data.current = classForMenuToggle;
   // Heroku servers need a hello to start the server. Free plans automatically stop server after 30min no activity.
   // true for implementation, false for deploy
-  const [saidHelloBackend, setSaidHelloBackend] = useState(true);
+  const [saidHelloBackend, setSaidHelloBackend] = useState(false);
   const [showMailModal, setShowMailModal] = useState(false);
   const [navbarHeight, setNavbarHeight] = useState("64");
 

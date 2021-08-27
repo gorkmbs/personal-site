@@ -380,7 +380,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
         {showFirework ? (
           <>
             <div
-              className="firework-video"
+              className="firework-video flex justify-center items-center"
               style={{
                 width: "100vw",
                 height: "100vh",
@@ -388,15 +388,16 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                 position: "fixed",
                 top: "0px",
                 left: "0px",
+                backgroundImage: `url(${nightSky})`,
               }}
             >
               <video
                 id="video"
                 autoPlay
-                className="w-full"
                 loop
                 muted
                 playsInline
+                className="w-full"
               >
                 <source id="mp4" src={firework} type="video/mp4" />
                 <p>Your user agent does not support the HTML5 Video element.</p>

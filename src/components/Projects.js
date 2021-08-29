@@ -11,6 +11,8 @@ import bot1 from "../assets/bot1.png";
 import nightSky from "../assets/nightSky.jpg";
 import apple from "../assets/apple.JPG";
 import firework from "../assets/firework.mp4";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import generalMain1 from "../assets/market/generalMain1.png";
 import { GoMarkGithub } from "react-icons/go";
@@ -65,6 +67,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
   });
   const [showBiggerImageModal, setShowBiggerImageModal] = useState(false);
   const [currentBigImage, setCurrentBigImage] = useState(animals);
+  const [currentBigImageArray, setCurrentBigImageArray] = useState([]);
+  const [currentBigImageIndex, setcurrentBigImageIndex] = useState(0);
   const [showBackground, setShowBackground] = useState(true);
   const [linkedFromDetails, setLinkedFromDetails] = useState(false);
   const [playPageFlip] = useSound(pageFlip);
@@ -95,13 +99,35 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
     }
   };
 
+  const changeImage = (way) => {
+    if (way === "next") {
+      if (currentBigImageArray.length - 1 === currentBigImageIndex) {
+        setCurrentBigImage(currentBigImageArray[0]);
+        setcurrentBigImageIndex(0);
+      } else {
+        setCurrentBigImage(currentBigImageArray[currentBigImageIndex + 1]);
+        setcurrentBigImageIndex(currentBigImageIndex + 1);
+      }
+    } else if (way === "prev") {
+      if (currentBigImageIndex === 0) {
+        setCurrentBigImage(
+          currentBigImageArray[currentBigImageArray.length - 1]
+        );
+        setcurrentBigImageIndex(currentBigImageArray.length - 1);
+      } else {
+        setCurrentBigImage(currentBigImageArray[currentBigImageIndex - 1]);
+        setcurrentBigImageIndex(currentBigImageIndex - 1);
+      }
+    }
+  };
+
   return (
     <>
       <div className="bg-red-600" style={{ height: "2px" }}></div>
       {showBiggerImageModal ? (
         <>
           <button
-            className="py-2 px-4 text-red-100 mr-8 bg-red-600"
+            className="py-2 px-4 text-red-100 mr-8 bg-red-600 hover:bg-red-500"
             style={{
               position: "fixed",
               right: "10px",
@@ -114,6 +140,68 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
           >
             X
           </button>
+          <button
+            className="p-4 text-center rounded-full text-red-100 bg-gray-600 bg-opacity-75 hover:bg-gray-500"
+            style={{
+              position: "fixed",
+              right: "10px",
+              top: "40vh",
+              zIndex: "120",
+            }}
+            onClick={() => {
+              changeImage("next");
+            }}
+          >
+            <div className="flex justify-center items-center">
+              <AiOutlineArrowRight className="text-3xl" />
+            </div>
+          </button>
+          <button
+            className="p-4 text-center rounded-full text-red-100 bg-gray-600 bg-opacity-75 hover:bg-gray-500"
+            style={{
+              position: "fixed",
+              left: "10px",
+              top: "40vh",
+              zIndex: "120",
+            }}
+            onClick={() => {
+              changeImage("prev");
+            }}
+          >
+            <div className="flex justify-center items-center">
+              <AiOutlineArrowLeft className="text-3xl" />
+            </div>
+          </button>
+          <div
+            className="flex justify-center items-center  w-full h-20"
+            style={{
+              position: "fixed",
+              left: "0px",
+              bottom: "15px",
+              zIndex: "120",
+            }}
+          >
+            <div className="flex bg-gray-900 bg-opacity-100 py-4 rounded-xl">
+              {currentBigImageArray.map((photo, index) => {
+                return (
+                  <img
+                    src={photo}
+                    alt=""
+                    key={index}
+                    className={`h-16 mx-4 border border-8 border-solid transition ease transition-1000 cursor-pointer ${
+                      index === currentBigImageIndex
+                        ? "border-red-600 opacity-100"
+                        : "border-gray-900 opacity-25"
+                    }`}
+                    onClick={() => {
+                      setcurrentBigImageIndex(index);
+                      setCurrentBigImage(photo);
+                    }}
+                  />
+                );
+              })}
+            </div>
+          </div>
         </>
       ) : (
         <></>
@@ -222,6 +310,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                               onClick={() => {
                                 setCurrentBigImage(item);
                                 setShowBiggerImageModal(true);
+                                setCurrentBigImageArray(tamzirtapozImages);
+                                setcurrentBigImageIndex(index);
                               }}
                               className="m-4 cursor-pointer"
                               src={item}
@@ -239,8 +329,10 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                           onClick={() => {
                             setCurrentBigImage(tamzirtapozImages[3]);
                             setShowBiggerImageModal(true);
+                            setCurrentBigImageArray(tamzirtapozImages);
+                            setcurrentBigImageIndex(3);
                           }}
-                          className="img-fluid"
+                          className=""
                           src={tamzirtapozImages[3]}
                           alt="animals"
                           style={{ height: "200px" }}
@@ -338,6 +430,10 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                               onClick={() => {
                                 setCurrentBigImage(item);
                                 setShowBiggerImageModal(true);
+                                setCurrentBigImageArray(
+                                  marketTamzirtapozImages
+                                );
+                                setcurrentBigImageIndex(index);
                               }}
                               className="m-4 cursor-pointer"
                               src={item}
@@ -355,6 +451,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                           onClick={() => {
                             setCurrentBigImage(marketTamzirtapozImages[1]);
                             setShowBiggerImageModal(true);
+                            setCurrentBigImageArray(marketTamzirtapozImages);
+                            setcurrentBigImageIndex(1);
                           }}
                           className="m-4 cursor-pointer"
                           src={marketTamzirtapozImages[1]}
@@ -503,6 +601,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                           onClick={() => {
                             setCurrentBigImage(item);
                             setShowBiggerImageModal(true);
+                            setCurrentBigImageArray(napImages);
+                            setcurrentBigImageIndex(index);
                           }}
                           className="m-4 cursor-pointer"
                           src={item}
@@ -588,6 +688,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                           onClick={() => {
                             setCurrentBigImage(item);
                             setShowBiggerImageModal(true);
+                            setCurrentBigImageArray(bankImages);
+                            setcurrentBigImageIndex(index);
                           }}
                           className="m-4 cursor-pointer"
                           src={item}
@@ -850,6 +952,8 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                           setCurrentBigImage(photo);
                           setTimeout(() => {
                             setShowBiggerImageModal(true);
+                            setCurrentBigImageArray(detailsData.photos);
+                            setcurrentBigImageIndex(index);
                           }, 500);
                         }}
                         src={photo}
@@ -888,7 +992,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
           auto-reopen="true"
           className="fixed inset-0 overflow-y-auto"
           initialFocus={cancelButtonRef2}
-          onClose={imageClose}
+          onClose={() => {}}
           style={{ zIndex: "102" }}
         >
           <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">

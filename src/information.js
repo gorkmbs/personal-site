@@ -24,6 +24,9 @@ import nap2 from "./assets/nap2.png";
 import nap3 from "./assets/nap3.png";
 import nap4 from "./assets/nap4.png";
 import nap5 from "./assets/nap5.png";
+import bank1 from "./assets/bank1.png";
+import bank2 from "./assets/bank2.png";
+import bank3 from "./assets/bank3.png";
 
 /*
  *** General info about Görkem Buğra Saraç
@@ -339,6 +342,39 @@ export const napContent = [
 ];
 
 export const napParagraph2 = `This site is based on Vue.js, Vanilla.js, Bootstrap, Vuex, JWT Authentication`;
+
+/*
+ *** Vue Bank Part
+ */
+
+export const bankParagraph1 = `This is a simple simulation project about graphical contents and tables. 'Highcharts' is used in this site.`;
+
+export const bankImages = [bank1, bank2, bank3];
+
+export const bankContent = [
+  {
+    title: "Dependencies",
+    paragraph1: "Dependencies are listed below.",
+    photos: [],
+    ulItems: [
+      "@fortawesome/vue-fontawesome",
+      "@mdi/js",
+      "@popperjs/core",
+      "bootstrap",
+      "bootstrap-vue",
+      "core-js",
+      "highcharts",
+      "node-sass",
+      "vue",
+      "vue-material-design-icons",
+      "vue-router",
+      "vuex",
+    ],
+    paragraph2: "",
+  },
+];
+
+export const bankParagraph2 = `This site is based on Vue.js, Vanilla.js, Bootstrap, Vuex, Highcharts, JWT Authentication`;
 
 /*
  *** tamzirtapoz Node.js Backend Server

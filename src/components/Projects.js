@@ -173,7 +173,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
             </div>
           </button>
           <div
-            className="flex justify-center items-center  w-full h-20"
+            className="flex justify-center items-center  w-full h-16"
             style={{
               position: "fixed",
               left: "0px",
@@ -181,18 +181,23 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
               zIndex: "120",
             }}
           >
-            <div className="flex bg-gray-900 bg-opacity-100 py-4 rounded-xl">
+            <div className="flex bg-gray-900 bg-opacity-100 py-2 px-1 rounded-xl flex-wrap justify-around">
               {currentBigImageArray.map((photo, index) => {
                 return (
                   <img
                     src={photo}
                     alt=""
                     key={index}
-                    className={`h-16 mx-4 border border-8 border-solid transition ease transition-1000 cursor-pointer ${
+                    className={` m-1 border border-8 border-solid transition ease transition-1000 cursor-pointer ${
                       index === currentBigImageIndex
                         ? "border-red-600 opacity-100"
                         : "border-gray-900 opacity-25"
                     }`}
+                    style={{
+                      width: "15vw",
+                      maxWidth: "80px",
+                      maxHeight: "70px",
+                    }}
                     onClick={() => {
                       setcurrentBigImageIndex(index);
                       setCurrentBigImage(photo);

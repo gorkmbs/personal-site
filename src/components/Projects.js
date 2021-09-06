@@ -10,9 +10,11 @@ import payment2 from "../assets/market/payment2.jpg";
 import bot1 from "../assets/bot1.png";
 import nightSky from "../assets/nightSky.jpg";
 import apple from "../assets/apple.JPG";
-import firework from "../assets/firework.mp4";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import GlitchSquiggly from "react-glitch-effect/core/GlitchSquiggly";
+
+import Confetti from "react-confetti";
 
 import generalMain1 from "../assets/market/generalMain1.png";
 import { GoMarkGithub } from "react-icons/go";
@@ -55,7 +57,13 @@ import pageFlip from "../soundEffects/pageFlip.mp3";
 const tamzirtapozImages = [welcome, bot1, animals, videos, messaging1];
 const marketTamzirtapozImages = [sidebar1, addBag1, payment2, generalMain1];
 
-const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
+const Projects = ({
+  pageWidth,
+  pageYPosition,
+  navbarHeight,
+  urlServer,
+  pageHeight,
+}) => {
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [showFirework, setShowFirework] = useState(false);
   const [detailsData, setDetailsData] = useState({
@@ -332,13 +340,13 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                       <div className="flex m-0 p-1">
                         <img
                           onClick={() => {
-                            setCurrentBigImage(tamzirtapozImages[3]);
+                            setCurrentBigImage(tamzirtapozImages[4]);
                             setShowBiggerImageModal(true);
                             setCurrentBigImageArray(tamzirtapozImages);
                             setcurrentBigImageIndex(3);
                           }}
                           className=""
-                          src={tamzirtapozImages[3]}
+                          src={tamzirtapozImages[4]}
                           alt="animals"
                           style={{ height: "200px" }}
                         />
@@ -490,28 +498,20 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
         {showFirework ? (
           <>
             <div
-              className="firework-video flex justify-center items-center"
+              className="h-screen w-screen "
               style={{
-                width: "100vw",
-                height: "100vh",
-                zIndex: "200",
+                zIndex: "400",
                 position: "fixed",
-                top: "0px",
-                left: "0px",
-                backgroundImage: `url(${nightSky})`,
+                top: 0,
+                left: 0,
               }}
             >
-              <video
-                id="video"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full"
-              >
-                <source id="mp4" src={firework} type="video/mp4" />
-                <p>Your user agent does not support the HTML5 Video element.</p>
-              </video>
+              <Confetti
+                width={pageWidth}
+                height={pageHeight}
+                recycle={false}
+                numberOfPieces={Number(pageWidth)}
+              />
             </div>
           </>
         ) : (
@@ -520,26 +520,34 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
 
         <div className="flex justify-around w-full items center my-8 flex-wrap">
           <div>
-            <img className="rounded-3xl" src={apple} alt="apple" />
+            <GlitchSquiggly onHover={true}>
+              <img className="rounded-3xl" src={apple} alt="apple" />
+            </GlitchSquiggly>
           </div>
           <div className="flex flex-col items-center justify-center">
-            <div className="border border-red-600 border-2 text-gray-100 font-mono text-3xl m-4 p-8">
-              <p className="text-center">If you give up, you lose...</p>
-            </div>
+            <GlitchSquiggly onHover={false}>
+              <div className="border border-red-600 border-2 text-gray-100 font-mono text-3xl m-4 p-8">
+                <p className="text-center cursor-default">
+                  If you give up, you lose...
+                </p>
+              </div>
+            </GlitchSquiggly>
             <div className="flex w-full justify-center items-center m-8">
-              <button
-                className="rounded-xl bg-red-600 text-gray-100 px-4 py-2 text-lg hover:bg-green-600 transition ease transition-500"
-                onClick={() => {
-                  setShowFirework(true);
-                  setShowBackground(false);
-                  setTimeout(() => {
-                    setShowFirework(false);
+              <GlitchSquiggly onHover={true}>
+                <button
+                  className="rounded-xl bg-red-600 text-gray-100 px-4 py-2 text-lg hover:bg-green-600 transition ease transition-500"
+                  onClick={() => {
+                    setShowFirework(true);
                     setShowBackground(false);
-                  }, 5000);
-                }}
-              >
-                Never Give Up !
-              </button>
+                    setTimeout(() => {
+                      setShowFirework(false);
+                      setShowBackground(false);
+                    }, 5000);
+                  }}
+                >
+                  Never Give Up !
+                </button>
+              </GlitchSquiggly>
             </div>
           </div>
         </div>
@@ -858,7 +866,7 @@ const Projects = ({ pageWidth, pageYPosition, navbarHeight, urlServer }) => {
                       {item.subject}
                     </h4>
                     <h5 className="text-red-300 my-4">Video Courses</h5>
-                    <ol className="list-decimal text-gray-100 m-4">
+                    <ol className="list-decimal text-gray-100 m-4 px-2">
                       {item.videos.map((video, index2) => {
                         return (
                           <li key={index2} className="my-2">

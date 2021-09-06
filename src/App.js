@@ -24,6 +24,7 @@ function App() {
   const [saidHelloBackend, setSaidHelloBackend] = useState(false);
   const [showMailModal, setShowMailModal] = useState(false);
   const [navbarHeight, setNavbarHeight] = useState("64");
+  const [pageHeight, setPageHeight] = useState(0);
 
   useEffect(() => {
     if (pageWidth >= 768) {
@@ -70,6 +71,7 @@ function App() {
 
   const scrolledPage = () => {
     setPageWidth(window.innerWidth);
+    setPageHeight(window.screen.height);
     setPageYPosition(window.pageYOffset);
   };
 
@@ -114,6 +116,7 @@ function App() {
         urlServer={urlServer}
         pageYPosition={pageYPosition}
         navbarHeight={navbarHeight}
+        pageHeight={pageHeight}
       />
       <Contacts
         urlServer={urlServer}

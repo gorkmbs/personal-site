@@ -183,7 +183,7 @@ const Contacts = ({
               <div className="flex justify-center w-full">
                 <a
                   className="text-center text-blue-600"
-                  href={urlServer + "/downloads/personal-cv"}
+                  href={urlServer + "/downloads/pdf/personal-cv"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

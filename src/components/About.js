@@ -63,7 +63,7 @@ const About = ({ urlServer, setShowMailModal }) => {
                   <div className="font-mono mt-2 mx-4">
                     CV:
                     <a
-                      href={urlServer + "/downloads/personal-cv"}
+                      href={urlServer + "/downloads/pdf/personal-cv"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-400 ml-2"
@@ -153,7 +153,7 @@ const About = ({ urlServer, setShowMailModal }) => {
                     >
                       CV:
                       <a
-                        href={urlServer + "/downloads/personal-cv"}
+                        href={urlServer + "/downloads/pdf/personal-cv"}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-400 ml-2"

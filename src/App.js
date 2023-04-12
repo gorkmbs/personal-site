@@ -9,7 +9,7 @@ import nightSky from "./assets/nightSky.jpg";
 const axios = require("axios");
 
 // const urlServer = "http://localhost:5000";
-const urlServer = "https://redterrex.herokuapp.com";
+const urlServer = "https://redterrex.onrender.com";
 
 function App() {
   const [pageWidth, setPageWidth] = useState(800);
